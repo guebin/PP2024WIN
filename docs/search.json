@@ -217,13 +217,6 @@
     "text": "str 특수기능\n\na='guebin'\na\n\n'guebin'\n\n\n\na=3.14\n\n- 파이썬의 변수는 단순히 정보를 담는 그릇이 아니다. 유용한 기능을 제공하는 경우가 있다.\n\na='ABCD' # a라는 변수는 'ABCD'라는 정보를 담는 그릇의 역할만 하지 않고, 특화된 어떠한 기능도 제공한다. \na\n\n'ABCD'\n\n\n\na.lower() # a.lower()를 쓰면 a의 모든 문자를 소문자로 바꾸는 기능을 제공, lower(a)라고 읽자!\n\n'abcd'\n\n\n여기에서 lower()는 문자열에 특화된 기능임. 따라서 당연히 아래는 불가능\n\na=3.14\na.lower() # lower(a)\n\nAttributeError: 'float' object has no attribute 'lower'\n\n\n- 자료형에 특화된 기능(=함수)을 확인하는 방법? a.+ tab 으로 목록 확인 가능\n\na='guebin'\n\n\na.upper?\n\n\nSignature: a.upper()\nDocstring: Return a copy of the string converted to uppercase.\nType:      builtin_function_or_method\n\n\n\n\n\na.upper() # upper(a) \n\n'GUEBIN'\n\n\n\na.capitalize() # capitalize(a) \n\n'Guebin'\n\n\n- 마음의눈: a.f() 형태를 읽는 팁\n\na.f()는 f(a)로 생각하면 편리함.\na.f(2)는 f(a,2)로 생각하면 편리함.\n\n0차원 vs 1차원\n- len함수 소개: 원소의 갯수를 알려주는 함수.\n\na='guebin'\n\n\nlen(a)\n\n6\n\n\n(0차원) len 함수가 동작하지 않음.\n\na=3.14\n\n\nlen(a)\n\nTypeError: object of type 'float' has no len()\n\n\n\nb=True\n\n\nlen(b)\n\nTypeError: object of type 'bool' has no len()\n\n\n(1차원) len 함수가 잘 동작함.\n\na='3.14'\nlen(a)\n\n4\n\n\n\nb=[1,2,3]\n\n\nlen(b)\n\n3"
   },
   {
-    "objectID": "posts/Day2/ls07.html",
-    "href": "posts/Day2/ls07.html",
-    "title": "Lesson 07: pandas I",
-    "section": "",
-    "text": "import numpy as np\nimport pandas as pd"
-  },
-  {
     "objectID": "posts/Day2/ls07.html#열의-선택",
     "href": "posts/Day2/ls07.html#열의-선택",
     "title": "Lesson 07: pandas I",
@@ -259,13 +252,6 @@
     "text": "제 스타일 X\n- 제가 안쓰는 코드1\n\ndf[:1]\n\n\n\n\n\n\n\n\natt\nrep\nmid\nfin\n\n\n\n\n0\n65\n55\n50\n40\n\n\n\n\n\n\n\n이러면 내 입장에서는 마치 아래가 동작할 것 같잖아..\n\ndf[0] \n\nKeyError: 0\n\n\n- 제가 안쓰는 코드2: bool의 list를 사용할때 iloc은 가급적 쓰지마세요\n\ndf.iloc[list(df['att']&lt;80),:]\n\n\n\n\n\n\n\n\natt\nrep\nmid\nfin\n\n\n\n\n0\n65\n55\n50\n40\n\n\n2\n65\n90\n60\n30\n\n\n3\n55\n80\n75\n80\n\n\n5\n75\n40\n100\n15\n\n\n6\n65\n45\n45\n90\n\n\n7\n60\n60\n25\n0\n\n\n10\n55\n75\n35\n25\n\n\n13\n50\n80\n40\n30\n\n\n14\n50\n55\n15\n85\n\n\n16\n50\n50\n45\n10\n\n\n17\n65\n55\n15\n45\n\n\n18\n70\n70\n40\n35\n\n\n\n\n\n\n\n이러면 마치 아래도 동작할 것 같잖아..\n\ndf.iloc[df['att']&lt;80,:]\n\nValueError: Location based indexing can only have [integer, integer slice (START point is INCLUDED, END point is EXCLUDED), listlike of integers, boolean array] types"
   },
   {
-    "objectID": "posts/Day2/ls06.html",
-    "href": "posts/Day2/ls06.html",
-    "title": "Lesson 06: numpy II",
-    "section": "",
-    "text": "import numpy as np"
-  },
-  {
     "objectID": "posts/Day2/ls06.html#np.concatenate",
     "href": "posts/Day2/ls06.html#np.concatenate",
     "title": "Lesson 06: numpy II",
@@ -292,13 +278,6 @@
     "title": "Lesson 06: numpy II",
     "section": "mean, max, min",
     "text": "mean, max, min\n- 모두 sum이랑 유사한 논리\n\na=np.array(range(10)).reshape(5,2)\na\n\narray([[0, 1],\n       [2, 3],\n       [4, 5],\n       [6, 7],\n       [8, 9]])\n\n\n\na.mean(axis=0), a.max(axis=0), a.min(axis=0)\n\n(array([4., 5.]), array([8, 9]), array([0, 1]))\n\n\n\na.mean(axis=1), a.max(axis=1), a.min(axis=1)\n\n(array([0.5, 2.5, 4.5, 6.5, 8.5]),\n array([1, 3, 5, 7, 9]),\n array([0, 2, 4, 6, 8]))"
-  },
-  {
-    "objectID": "posts/Day2/ls10.html",
-    "href": "posts/Day2/ls10.html",
-    "title": "Lesson 10: seaborn, plotnie",
-    "section": "",
-    "text": "import numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom plotnine import *\n\n\nimport matplotlib\nmatplotlib.rcParams['figure.dpi'] = 120\n\n\n# import warnings\n# warnings.filterwarnings('ignore')"
   },
   {
     "objectID": "posts/Day2/ls10.html#애드워드-터프티",
@@ -511,13 +490,6 @@
     "text": "산점도를 보고 상관계수의 부호를 해석\n# 예제 – 키와 몸무게의 산점도 + 상관계수의 부호해석\n- 질문: 아래의 그림은 상관계수 \\(r\\)의 값이 양수인가 음수인가?\n\nx=[44,48,49,58,62,68,69,70,76,79]\ny=[159,160,162,165,167,162,165,175,165,172]\n\n\nplt.plot(x,y,'o')\n\n\n\n\n\n\n\n\n- 차근차근 따져보자.\n\nxx = x-np.mean(x)\nyy = y-np.mean(y) \nxxx = xx/np.sqrt(np.sum(xx**2))\nyyy = yy/np.sqrt(np.sum(yy**2))\n\n\nfig, (ax1,ax2,ax3) = plt.subplots(1,3,figsize=(10,3))\nax1.plot(x,y,'o'); ax1.set_title(r'$(x_i,y_i)$')\nax2.plot(xx,yy,'o'); ax2.set_title(r'$(x_i-\\bar{x},y_i-\\bar{y})$')\nax3.plot(xxx,yyy,'o'); ax3.set_title(r'$(\\tilde{x}_i,\\tilde{y}_i)$')\n\nText(0.5, 1.0, '$(\\\\tilde{x}_i,\\\\tilde{y}_i)$')\n\n\n\n\n\n\n\n\n\n\n\\(\\tilde{x}_i\\), \\(\\tilde{y}_i\\) 를 곱한값이 양수인것과 음수인것을 체크해보자.\n양수인쪽이 많은지 음수인쪽이 많은지 생각해보자.\n\\(r=\\sum_{i=1}^{n}\\tilde{x}_i \\tilde{y}_i\\) 의 부호는?\n\n- 그림을 보고 상관계수의 부호를 알아내는 방법? \\((x_i,y_i)\\)의 산점도를 보고 \\((\\tilde{x}_i, \\tilde{y}_i)\\) 의 산점도를 상상 \\(\\to\\) 1,3 분면에 점들이 많으면 양수, 2,4 분면에 점들이 많으면 음수\n#"
   },
   {
-    "objectID": "posts/Day2/ls08.html",
-    "href": "posts/Day2/ls08.html",
-    "title": "Lesson 08: pandas II",
-    "section": "",
-    "text": "import pandas as pd"
-  },
-  {
     "objectID": "posts/Day2/ls08.html#lambda",
     "href": "posts/Day2/ls08.html#lambda",
     "title": "Lesson 08: pandas II",
@@ -572,13 +544,6 @@
     "title": "Lesson 08: pandas II",
     "section": "컴프리헨션, lambda+map을 무시하지 말 것",
     "text": "컴프리헨션, lambda+map을 무시하지 말 것\n# 예시1\n\ndf = pd.read_csv(\"https://raw.githubusercontent.com/guebin/DV2023/main/posts/titanic.csv\")[:5]\ndf\n\n\n\n\n\n\n\n\nPassengerId\nSurvived\nPclass\nName\nSex\nAge\nSibSp\nParch\nTicket\nFare\nCabin\nEmbarked\nlogFare\n\n\n\n\n0\n1\n0\n3\nBraund, Mr. Owen Harris\nmale\n22.0\n1\n0\nA/5 21171\n7.2500\nNaN\nS\n1.981001\n\n\n1\n2\n1\n1\nCumings, Mrs. John Bradley (Florence Briggs Th...\nfemale\n38.0\n1\n0\nPC 17599\n71.2833\nC85\nC\n4.266662\n\n\n2\n3\n1\n3\nHeikkinen, Miss. Laina\nfemale\n26.0\n0\n0\nSTON/O2. 3101282\n7.9250\nNaN\nS\n2.070022\n\n\n3\n4\n1\n1\nFutrelle, Mrs. Jacques Heath (Lily May Peel)\nfemale\n35.0\n1\n0\n113803\n53.1000\nC123\nS\n3.972177\n\n\n4\n5\n0\n3\nAllen, Mr. William Henry\nmale\n35.0\n0\n0\n373450\n8.0500\nNaN\nS\n2.085672\n\n\n\n\n\n\n\n위의 자료에서 아래와 같은 변환을 하고 싶다면?\n\\[\nf(\\text{sex}, \\text{sibsp}) =\n\\begin{cases}\n0.7 + 0.25 \\times \\text{sibsp} & \\text{if } \\text{sex} = \\text{'female'} \\\\\n0.1 + 0.15 \\times \\text{sibsp} & \\text{otherwise}\n\\end{cases}\n\\]\n\ndf.assign(Prob= list(map(lambda sex,sibsp: 0.7 + sibsp*0.25 if sex=='female' else 0.2 + sibsp*0.15, df.Sex, df.SibSp)))\n\n\n\n\n\n\n\n\nPassengerId\nSurvived\nPclass\nName\nSex\nAge\nSibSp\nParch\nTicket\nFare\nCabin\nEmbarked\nlogFare\nProb\n\n\n\n\n0\n1\n0\n3\nBraund, Mr. Owen Harris\nmale\n22.0\n1\n0\nA/5 21171\n7.2500\nNaN\nS\n1.981001\n0.35\n\n\n1\n2\n1\n1\nCumings, Mrs. John Bradley (Florence Briggs Th...\nfemale\n38.0\n1\n0\nPC 17599\n71.2833\nC85\nC\n4.266662\n0.95\n\n\n2\n3\n1\n3\nHeikkinen, Miss. Laina\nfemale\n26.0\n0\n0\nSTON/O2. 3101282\n7.9250\nNaN\nS\n2.070022\n0.70\n\n\n3\n4\n1\n1\nFutrelle, Mrs. Jacques Heath (Lily May Peel)\nfemale\n35.0\n1\n0\n113803\n53.1000\nC123\nS\n3.972177\n0.95\n\n\n4\n5\n0\n3\nAllen, Mr. William Henry\nmale\n35.0\n0\n0\n373450\n8.0500\nNaN\nS\n2.085672\n0.20\n\n\n\n\n\n\n\n#\n# 예시2\n\ndf = pd.read_csv(\"https://raw.githubusercontent.com/guebin/DV2023/main/posts/titanic.csv\")[:5]\ndf\n\n\n\n\n\n\n\n\nPassengerId\nSurvived\nPclass\nName\nSex\nAge\nSibSp\nParch\nTicket\nFare\nCabin\nEmbarked\nlogFare\n\n\n\n\n0\n1\n0\n3\nBraund, Mr. Owen Harris\nmale\n22.0\n1\n0\nA/5 21171\n7.2500\nNaN\nS\n1.981001\n\n\n1\n2\n1\n1\nCumings, Mrs. John Bradley (Florence Briggs Th...\nfemale\n38.0\n1\n0\nPC 17599\n71.2833\nC85\nC\n4.266662\n\n\n2\n3\n1\n3\nHeikkinen, Miss. Laina\nfemale\n26.0\n0\n0\nSTON/O2. 3101282\n7.9250\nNaN\nS\n2.070022\n\n\n3\n4\n1\n1\nFutrelle, Mrs. Jacques Heath (Lily May Peel)\nfemale\n35.0\n1\n0\n113803\n53.1000\nC123\nS\n3.972177\n\n\n4\n5\n0\n3\nAllen, Mr. William Henry\nmale\n35.0\n0\n0\n373450\n8.0500\nNaN\nS\n2.085672\n\n\n\n\n\n\n\n위의 자료에서 Name열을 아래와 같이 분리하는 작업을 수행하라.\n\n\n\n\ntitle\nName\n\n\n\n\n0\nMr\nOwen Harris Braund\n\n\n1\nMrs\nJohn Bradley (Florence Briggs Thayer) Cumings\n\n\n2\nMiss\nLaina Heikkinen\n\n\n3\nMrs\nJacques Heath (Lily May Peel) Futrelle\n\n\n4\nMr\nWilliam Henry Allen\n\n\n\n(풀이)\n\n_lst = [[title,f'{first_name} {last_name}'] for last_name, title, first_name in df.Name.str.replace(', ','/').str.replace('. ','/').str.split('/')]\npd.DataFrame(_lst, columns=['title','Name2'])\n\n\n\n\n\n\n\n\ntitle\nName2\n\n\n\n\n0\nMr\nOwen Harris Braund\n\n\n1\nMrs\nJohn Bradley (Florence Briggs Thayer) Cumings\n\n\n2\nMiss\nLaina Heikkinen\n\n\n3\nMrs\nJacques Heath (Lily May Peel) Futrelle\n\n\n4\nMr\nWilliam Henry Allen\n\n\n\n\n\n\n\n참고: “Mr,Mrs,Miss” 만 뽑아내는 코드\n\ndf.Name.str.split(', ').str[-1].str.split('. ').str[0]\n\n0      Mr\n1     Mrs\n2    Miss\n3     Mrs\n4      Mr\nName: Name, dtype: object\n\n\n#"
-  },
-  {
-    "objectID": "posts/Day2/ls05.html",
-    "href": "posts/Day2/ls05.html",
-    "title": "Lesson 05: numpy I",
-    "section": "",
-    "text": "import numpy as np"
   },
   {
     "objectID": "posts/Day2/ls05.html#선언",
