@@ -160,11 +160,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#imports" id="toc-imports" class="nav-link active" data-scroll-target="#imports">imports</a></li>
-  <li><a href="#pandas-행과-열의-선택" id="toc-pandas-행과-열의-선택" class="nav-link" data-scroll-target="#pandas-행과-열의-선택">pandas: 행과 열의 선택</a>
+  <li><a href="#pandas-선언-열의이름확인" id="toc-pandas-선언-열의이름확인" class="nav-link" data-scroll-target="#pandas-선언-열의이름확인">Pandas: 선언, 열의이름확인</a></li>
+  <li><a href="#pandas-행과-열의-선택" id="toc-pandas-행과-열의-선택" class="nav-link" data-scroll-target="#pandas-행과-열의-선택">Pandas: 행과 열의 선택</a>
   <ul class="collapse">
   <li><a href="#열의-선택" id="toc-열의-선택" class="nav-link" data-scroll-target="#열의-선택">열의 선택</a></li>
   <li><a href="#행의-선택" id="toc-행의-선택" class="nav-link" data-scroll-target="#행의-선택">행의 선택</a></li>
   <li><a href="#요약" id="toc-요약" class="nav-link" data-scroll-target="#요약">요약</a></li>
+  </ul></li>
+  <li><a href="#pandas-제가-선호하는-행과-열의-선택" id="toc-pandas-제가-선호하는-행과-열의-선택" class="nav-link" data-scroll-target="#pandas-제가-선호하는-행과-열의-선택">Pandas: 제가 선호하는 행과 열의 선택</a>
+  <ul class="collapse">
   <li><a href="#제-스타일" id="toc-제-스타일" class="nav-link" data-scroll-target="#제-스타일">제 스타일</a></li>
   <li><a href="#제-스타일-x" id="toc-제-스타일-x" class="nav-link" data-scroll-target="#제-스타일-x">제 스타일 X</a></li>
   </ul></li>
@@ -213,8 +217,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
+<section id="pandas-선언-열의이름확인" class="level1">
+<h1>Pandas: 선언, 열의이름확인</h1>
+</section>
 <section id="pandas-행과-열의-선택" class="level1">
-<h1>pandas: 행과 열의 선택</h1>
+<h1>Pandas: 행과 열의 선택</h1>
 <p><code>-</code> 데이터</p>
 <div id="c0e3cf0f" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
@@ -588,6 +595,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
+</section>
+<section id="pandas-제가-선호하는-행과-열의-선택" class="level1">
+<h1>Pandas: 제가 선호하는 행과 열의 선택</h1>
 <section id="제-스타일" class="level2">
 <h2 class="anchored" data-anchor-id="제-스타일">제 스타일</h2>
 <p><code>-</code> <strong>가장 안전한 코드</strong></p>
@@ -804,76 +814,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="quiz" class="level1">
 <h1>Quiz</h1>
-<p><code>(1)</code> 아래와 같은 데이터 프레임을 선언하라.</p>
-<div id="d8f559d7" class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="im">from</span> IPython.core.display <span class="im">import</span> HTML </span>
-<span id="cb29-2"><a href="#cb29-2"></a>HTML(<span class="st">'&lt;table border="1" class="dataframe"&gt;</span><span class="ch">\n</span><span class="st">  &lt;thead&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr style="text-align: right;"&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;A&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;B&lt;/th&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">  &lt;/thead&gt;</span><span class="ch">\n</span><span class="st">  &lt;tbody&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;0&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;1&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-2&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;1&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;2&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-3&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;2&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;3&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-4&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">  &lt;/tbody&gt;</span><span class="ch">\n</span><span class="st">&lt;/table&gt;'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">A</th>
-<th data-quarto-table-cell-role="th">B</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>1</td>
-<td>-2</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2</td>
-<td>-3</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>3</td>
-<td>-4</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><code>(2)</code> Column을 이름을 X1, X2로 변경하라. 출력결과는 아래와 같아야 한다.</p>
-<div id="4bf25299" class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="im">from</span> IPython.core.display <span class="im">import</span> HTML </span>
-<span id="cb30-2"><a href="#cb30-2"></a>HTML(<span class="st">'&lt;table border="1" class="dataframe"&gt;</span><span class="ch">\n</span><span class="st">  &lt;thead&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr style="text-align: right;"&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;X1&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;X2&lt;/th&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">  &lt;/thead&gt;</span><span class="ch">\n</span><span class="st">  &lt;tbody&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;0&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;1&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-2&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;1&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;2&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-3&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;2&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;3&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-4&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">  &lt;/tbody&gt;</span><span class="ch">\n</span><span class="st">&lt;/table&gt;'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">X1</th>
-<th data-quarto-table-cell-role="th">X2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>1</td>
-<td>-2</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2</td>
-<td>-3</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>3</td>
-<td>-4</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><code>(3)-(5)</code> 아래와 같은 자료를 고려하자.</p>
+<p><code>(1)-(3)</code> 아래와 같은 자료를 고려하자.</p>
 <div id="00c887d0" class="cell" data-execution_count="129">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>df <span class="op">=</span> pd.DataFrame(np.random.normal(size<span class="op">=</span>(<span class="dv">100</span>,<span class="dv">5</span>)),columns<span class="op">=</span><span class="bu">list</span>(<span class="st">'ABCDE'</span>))</span>
-<span id="cb31-2"><a href="#cb31-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>df <span class="op">=</span> pd.DataFrame(np.random.normal(size<span class="op">=</span>(<span class="dv">100</span>,<span class="dv">5</span>)),columns<span class="op">=</span><span class="bu">list</span>(<span class="st">'ABCDE'</span>))</span>
+<span id="cb29-2"><a href="#cb29-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="129">
 <div>
 
@@ -985,270 +929,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p><code>(3)</code> B,D열을 선택하라.</p>
-<div id="3e273c28-24c9-41f5-9448-169ed5896ede" class="cell" data-execution_count="130">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>df.loc[:,[<span class="st">'B'</span>,<span class="st">'D'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="130">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">B</th>
-<th data-quarto-table-cell-role="th">D</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>0.723759</td>
-<td>0.194022</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>0.990933</td>
-<td>-0.608965</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>-0.860866</td>
-<td>0.104294</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>1.898428</td>
-<td>-0.381609</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>-0.716270</td>
-<td>0.089546</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">95</td>
-<td>-0.901952</td>
-<td>0.045797</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">96</td>
-<td>0.685877</td>
-<td>-0.043043</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">97</td>
-<td>-0.375628</td>
-<td>0.576883</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">98</td>
-<td>-0.021064</td>
-<td>1.000606</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">99</td>
-<td>0.569409</td>
-<td>0.326520</td>
-</tr>
-</tbody>
-</table>
-
-<p>100 rows × 2 columns</p>
-</div>
-</div>
-</div>
-<p><code>(4)</code> 마지막 10개의 row를 출력하라.</p>
-<div id="c4b60d47-d5fd-4c13-93a6-7f40e0596115" class="cell" data-execution_count="131">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>df[<span class="op">-</span><span class="dv">10</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="131">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">A</th>
-<th data-quarto-table-cell-role="th">B</th>
-<th data-quarto-table-cell-role="th">C</th>
-<th data-quarto-table-cell-role="th">D</th>
-<th data-quarto-table-cell-role="th">E</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">90</td>
-<td>-0.515706</td>
-<td>-1.345645</td>
-<td>1.310011</td>
-<td>-2.072882</td>
-<td>-0.200044</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">91</td>
-<td>-2.488585</td>
-<td>-1.760744</td>
-<td>-0.790638</td>
-<td>-2.568387</td>
-<td>0.884457</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">92</td>
-<td>-0.178529</td>
-<td>-0.672677</td>
-<td>0.811988</td>
-<td>-1.062689</td>
-<td>0.183336</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">93</td>
-<td>-1.410621</td>
-<td>0.876799</td>
-<td>0.119850</td>
-<td>0.295357</td>
-<td>-0.918690</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">94</td>
-<td>0.632102</td>
-<td>-0.777506</td>
-<td>-1.732188</td>
-<td>0.016164</td>
-<td>0.842943</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">95</td>
-<td>0.568935</td>
-<td>-0.901952</td>
-<td>0.781831</td>
-<td>0.045797</td>
-<td>-0.102197</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">96</td>
-<td>0.111096</td>
-<td>0.685877</td>
-<td>-0.472303</td>
-<td>-0.043043</td>
-<td>-0.952074</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">97</td>
-<td>2.206012</td>
-<td>-0.375628</td>
-<td>0.549381</td>
-<td>0.576883</td>
-<td>-1.280959</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">98</td>
-<td>-1.125719</td>
-<td>-0.021064</td>
-<td>-0.018777</td>
-<td>1.000606</td>
-<td>0.772153</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">99</td>
-<td>-0.158276</td>
-<td>0.569409</td>
-<td>-0.209664</td>
-<td>0.326520</td>
-<td>1.251615</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p><code>(5)</code> A,B 열의 처음 10개의 row를 출력하라.</p>
-<div id="46213a2d-b9f4-4f19-9a95-bf04305c7e73" class="cell" data-execution_count="133">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>df.loc[:<span class="dv">10</span>,[<span class="st">'A'</span>,<span class="st">'B'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="133">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">A</th>
-<th data-quarto-table-cell-role="th">B</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>0.106173</td>
-<td>0.723759</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>-0.351670</td>
-<td>0.990933</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>-1.884089</td>
-<td>-0.860866</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>-0.965230</td>
-<td>1.898428</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>0.453758</td>
-<td>-0.716270</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>0.401627</td>
-<td>0.204911</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>-0.434388</td>
-<td>-1.436772</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>0.937827</td>
-<td>1.079232</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>0.117038</td>
-<td>-0.350165</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>1.032189</td>
-<td>0.404380</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">10</td>
-<td>-0.247824</td>
-<td>-1.457658</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p><code>(6)-(10)</code> 아래와 같은 자료를 고려하자.</p>
+<p><code>(1)</code> B,D열을 선택하라.</p>
+<p><code>(2)</code> 마지막 10개의 row를 출력하라.</p>
+<p><code>(3)</code> A,B 열의 처음 10개의 row를 출력하라.</p>
+<p><code>(4)-(8)</code> 아래와 같은 자료를 고려하자.</p>
 <div id="b42e10d7" class="cell" data-execution_count="134">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/PacktPublishing/Pandas-Cookbook/master/data/movie.csv'</span>)</span>
-<span id="cb35-2"><a href="#cb35-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/PacktPublishing/Pandas-Cookbook/master/data/movie.csv'</span>)</span>
+<span id="cb30-2"><a href="#cb30-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="134">
 <div>
 
@@ -1552,285 +1239,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p><code>(6)</code> 이 데이터프레임에는 몇개의 컬럼이 있는지 count하라.</p>
-<div id="824856a0-3b78-49cd-9837-e495d164302e" class="cell" data-execution_count="137">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="bu">len</span>(df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="137">
-<pre><code>28</code></pre>
-</div>
-</div>
-<p><code>(7)</code> 데이터프레임의 컬럼이름이 c혹은 d로 시작하는 열은 몇개 있는지 세어보라.</p>
-<div id="602bec92-d4e0-48d6-85dd-24905c338996" class="cell" data-execution_count="141">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="bu">sum</span>([l[<span class="dv">0</span>]<span class="op">==</span><span class="st">'c'</span> <span class="kw">or</span> l[<span class="dv">0</span>]<span class="op">==</span><span class="st">'d'</span> <span class="cf">for</span> l <span class="kw">in</span> df.columns])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="141">
-<pre><code>7</code></pre>
-</div>
-</div>
-<p><code>(8)</code> c 혹은 d로 시작하는 열을 출력하라.</p>
-<div id="d8d1af24-272e-4868-89d8-50009d9677a7" class="cell" data-execution_count="146">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>df.loc[:,[l[<span class="dv">0</span>]<span class="op">==</span><span class="st">'c'</span> <span class="kw">or</span> l[<span class="dv">0</span>]<span class="op">==</span><span class="st">'d'</span> <span class="cf">for</span> l <span class="kw">in</span> df.columns]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="146">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">color</th>
-<th data-quarto-table-cell-role="th">director_name</th>
-<th data-quarto-table-cell-role="th">duration</th>
-<th data-quarto-table-cell-role="th">director_facebook_likes</th>
-<th data-quarto-table-cell-role="th">cast_total_facebook_likes</th>
-<th data-quarto-table-cell-role="th">country</th>
-<th data-quarto-table-cell-role="th">content_rating</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Color</td>
-<td>James Cameron</td>
-<td>178.0</td>
-<td>0.0</td>
-<td>4834</td>
-<td>USA</td>
-<td>PG-13</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Color</td>
-<td>Gore Verbinski</td>
-<td>169.0</td>
-<td>563.0</td>
-<td>48350</td>
-<td>USA</td>
-<td>PG-13</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Color</td>
-<td>Sam Mendes</td>
-<td>148.0</td>
-<td>0.0</td>
-<td>11700</td>
-<td>UK</td>
-<td>PG-13</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Color</td>
-<td>Christopher Nolan</td>
-<td>164.0</td>
-<td>22000.0</td>
-<td>106759</td>
-<td>USA</td>
-<td>PG-13</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>NaN</td>
-<td>Doug Walker</td>
-<td>NaN</td>
-<td>131.0</td>
-<td>143</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4911</td>
-<td>Color</td>
-<td>Scott Smith</td>
-<td>87.0</td>
-<td>2.0</td>
-<td>2283</td>
-<td>Canada</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">4912</td>
-<td>Color</td>
-<td>NaN</td>
-<td>43.0</td>
-<td>NaN</td>
-<td>1753</td>
-<td>USA</td>
-<td>TV-14</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4913</td>
-<td>Color</td>
-<td>Benjamin Roberds</td>
-<td>76.0</td>
-<td>0.0</td>
-<td>0</td>
-<td>USA</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">4914</td>
-<td>Color</td>
-<td>Daniel Hsia</td>
-<td>100.0</td>
-<td>0.0</td>
-<td>2386</td>
-<td>USA</td>
-<td>PG-13</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4915</td>
-<td>Color</td>
-<td>Jon Gunn</td>
-<td>90.0</td>
-<td>16.0</td>
-<td>163</td>
-<td>USA</td>
-<td>PG</td>
-</tr>
-</tbody>
-</table>
-
-<p>4916 rows × 7 columns</p>
-</div>
-</div>
-</div>
-<p><code>(9)</code> 이 데이터프레임에서 ’actor’라는 단어가 포함된 열의 출력하라.</p>
-<div id="be033865-fd56-4b18-9884-fce707079c4a" class="cell" data-execution_count="153">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>df.loc[:,[<span class="st">'actor'</span> <span class="kw">in</span> l <span class="cf">for</span> l <span class="kw">in</span> df.columns]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="153">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">actor_3_facebook_likes</th>
-<th data-quarto-table-cell-role="th">actor_2_name</th>
-<th data-quarto-table-cell-role="th">actor_1_facebook_likes</th>
-<th data-quarto-table-cell-role="th">actor_1_name</th>
-<th data-quarto-table-cell-role="th">actor_3_name</th>
-<th data-quarto-table-cell-role="th">actor_2_facebook_likes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>855.0</td>
-<td>Joel David Moore</td>
-<td>1000.0</td>
-<td>CCH Pounder</td>
-<td>Wes Studi</td>
-<td>936.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>1000.0</td>
-<td>Orlando Bloom</td>
-<td>40000.0</td>
-<td>Johnny Depp</td>
-<td>Jack Davenport</td>
-<td>5000.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>161.0</td>
-<td>Rory Kinnear</td>
-<td>11000.0</td>
-<td>Christoph Waltz</td>
-<td>Stephanie Sigman</td>
-<td>393.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>23000.0</td>
-<td>Christian Bale</td>
-<td>27000.0</td>
-<td>Tom Hardy</td>
-<td>Joseph Gordon-Levitt</td>
-<td>23000.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>NaN</td>
-<td>Rob Walker</td>
-<td>131.0</td>
-<td>Doug Walker</td>
-<td>NaN</td>
-<td>12.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4911</td>
-<td>318.0</td>
-<td>Daphne Zuniga</td>
-<td>637.0</td>
-<td>Eric Mabius</td>
-<td>Crystal Lowe</td>
-<td>470.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">4912</td>
-<td>319.0</td>
-<td>Valorie Curry</td>
-<td>841.0</td>
-<td>Natalie Zea</td>
-<td>Sam Underwood</td>
-<td>593.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4913</td>
-<td>0.0</td>
-<td>Maxwell Moody</td>
-<td>0.0</td>
-<td>Eva Boehnke</td>
-<td>David Chandler</td>
-<td>0.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">4914</td>
-<td>489.0</td>
-<td>Daniel Henney</td>
-<td>946.0</td>
-<td>Alan Ruck</td>
-<td>Eliza Coupe</td>
-<td>719.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4915</td>
-<td>16.0</td>
-<td>Brian Herzlinger</td>
-<td>86.0</td>
-<td>John August</td>
-<td>Jon Gunn</td>
-<td>23.0</td>
-</tr>
-</tbody>
-</table>
-
-<p>4916 rows × 6 columns</p>
-</div>
-</div>
-</div>
-<p><code>(10)</code> 이 데이터프레임에서 ’_’ 가 포함된 열을 출력하라.</p>
+<p><code>(4)</code> 이 데이터프레임에는 몇개의 컬럼이 있는지 count하라.</p>
+<p><code>(5)</code> 데이터프레임의 컬럼이름이 c혹은 d로 시작하는 열은 몇개 있는지 세어보라.</p>
+<p><code>(6)</code> c 혹은 d로 시작하는 열을 출력하라.</p>
+<p><code>(7)</code> 이 데이터프레임에서 ’actor’라는 단어가 포함된 열의 출력하라.</p>
+<p><code>(8)</code> 이 데이터프레임에서 ’_’ 가 포함된 열을 출력하라.</p>
 
 
 </section>
