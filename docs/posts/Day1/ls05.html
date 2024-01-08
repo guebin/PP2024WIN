@@ -156,13 +156,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#import" id="toc-import" class="nav-link active" data-scroll-target="#import">import</a></li>
-  <li><a href="#넘파이-공부-1단계" id="toc-넘파이-공부-1단계" class="nav-link" data-scroll-target="#넘파이-공부-1단계">넘파이 공부 1단계</a>
+  <li><a href="#import" id="toc-import" class="nav-link active" data-scroll-target="#import">Import</a></li>
+  <li><a href="#numpy-벡터느낌" id="toc-numpy-벡터느낌" class="nav-link" data-scroll-target="#numpy-벡터느낌">Numpy: 벡터느낌</a>
   <ul class="collapse">
   <li><a href="#선언" id="toc-선언" class="nav-link" data-scroll-target="#선언">선언</a></li>
   <li><a href="#기타수학연산지원" id="toc-기타수학연산지원" class="nav-link" data-scroll-target="#기타수학연산지원">기타수학연산지원</a></li>
   </ul></li>
-  <li><a href="#넘파이-공부-2단계" id="toc-넘파이-공부-2단계" class="nav-link" data-scroll-target="#넘파이-공부-2단계">넘파이 공부 2단계</a>
+  <li><a href="#numpy-인덱싱" id="toc-numpy-인덱싱" class="nav-link" data-scroll-target="#numpy-인덱싱">Numpy: 인덱싱</a>
   <ul class="collapse">
   <li><a href="#인덱싱-1차원" id="toc-인덱싱-1차원" class="nav-link" data-scroll-target="#인덱싱-1차원">인덱싱 1차원</a></li>
   <li><a href="#인덱싱-2차원" id="toc-인덱싱-2차원" class="nav-link" data-scroll-target="#인덱싱-2차원">인덱싱 2차원</a></li>
@@ -212,13 +212,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <section id="import" class="level1">
-<h1>import</h1>
+<h1>Import</h1>
 <div id="8adbbe65-da8c-4f20-ab65-6301e6e1bfc1" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="넘파이-공부-1단계" class="level1">
-<h1>넘파이 공부 1단계</h1>
+<section id="numpy-벡터느낌" class="level1">
+<h1>Numpy: 벡터느낌</h1>
 <section id="선언" class="level2">
 <h2 class="anchored" data-anchor-id="선언">선언</h2>
 <div id="2fab2a6e-e024-41b7-96e2-4ab023fa312a" class="cell" data-execution_count="12">
@@ -319,8 +319,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="넘파이-공부-2단계" class="level1">
-<h1>넘파이 공부 2단계</h1>
+<section id="numpy-인덱싱" class="level1">
+<h1>Numpy: 인덱싱</h1>
 <section id="인덱싱-1차원" class="level2">
 <h2 class="anchored" data-anchor-id="인덱싱-1차원">인덱싱 1차원</h2>
 <p><code>-</code> 선언</p>
@@ -569,40 +569,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="차원-배열의-선언" class="level2">
 <h2 class="anchored" data-anchor-id="차원-배열의-선언">1차원 배열의 선언</h2>
 <p><code>-</code> 리스트나 튜플을 선언하고 형변환</p>
-<div id="3de506da-1bac-4022-8666-2867fe205aef" class="cell" data-execution_count="128">
+<div id="3de506da-1bac-4022-8666-2867fe205aef" class="cell">
 <div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1"></a>np.array((<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)) <span class="co"># 튜플-&gt;넘파이어레이 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="128">
 <pre><code>array([1, 2, 3])</code></pre>
 </div>
 </div>
-<div id="669f3058-244c-4fe4-934f-25342d735c78" class="cell" data-execution_count="129">
+<div id="669f3058-244c-4fe4-934f-25342d735c78" class="cell">
 <div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1"></a>np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]) <span class="co"># 리스트 -&gt;넘파이어레이 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="129">
 <pre><code>array([1, 2, 3])</code></pre>
 </div>
 </div>
 <p><code>-</code> range()를 이용해서 선언하고 형변환</p>
-<div id="616b8bfb-b9d4-4ae5-936c-cfaa6f577ab1" class="cell" data-execution_count="133">
+<div id="616b8bfb-b9d4-4ae5-936c-cfaa6f577ab1" class="cell">
 <div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1"></a>np.array(<span class="bu">range</span>(<span class="dv">10</span>)) <span class="co"># range(10) -&gt; 넘파이어레이 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="133">
 <pre><code>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</code></pre>
 </div>
 </div>
 <p><code>-</code> np.zeros, np.ones</p>
-<div id="ac3774ab-6f17-4b94-a68b-ae712290f53d" class="cell" data-execution_count="135">
+<div id="ac3774ab-6f17-4b94-a68b-ae712290f53d" class="cell">
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1"></a>np.zeros(<span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="135">
 <pre><code>array([0., 0., 0.])</code></pre>
 </div>
 </div>
-<div id="fe38e90b-920d-4e29-b43e-0d889e3266c1" class="cell" data-execution_count="137">
+<div id="fe38e90b-920d-4e29-b43e-0d889e3266c1" class="cell">
 <div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb109-1"><a href="#cb109-1"></a>np.ones(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="137">
 <pre><code>array([1., 1., 1., 1.])</code></pre>
 </div>
 </div>
 <p><code>-</code> np.linspace</p>
-<div id="16dfe855-350d-4534-a6d7-ce0179cf6a6f" class="cell" data-execution_count="141">
+<div id="16dfe855-350d-4534-a6d7-ce0179cf6a6f" class="cell">
 <div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1"></a>np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">12</span>) <span class="co"># 0에서 시작하고 1에서 끝남 (양끝점 모두 포함)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="141">
 <pre><code>array([0.        , 0.09090909, 0.18181818, 0.27272727, 0.36363636,
@@ -610,20 +610,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
        0.90909091, 1.        ])</code></pre>
 </div>
 </div>
-<div id="718ae69c-69e1-4d76-b48f-2a3d85f3b853" class="cell" data-execution_count="142">
+<div id="718ae69c-69e1-4d76-b48f-2a3d85f3b853" class="cell">
 <div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1"></a><span class="bu">len</span>(np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">12</span>)) <span class="co"># 길이는 12</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="142">
 <pre><code>12</code></pre>
 </div>
 </div>
 <p><code>-</code> np.arange</p>
-<div id="6d2de2ee-ecc8-409a-b958-a2bda810537a" class="cell" data-execution_count="144">
+<div id="6d2de2ee-ecc8-409a-b958-a2bda810537a" class="cell">
 <div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1"></a>np.arange(<span class="dv">5</span>) <span class="co"># np.array(range(5))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="144">
 <pre><code>array([0, 1, 2, 3, 4])</code></pre>
 </div>
 </div>
-<div id="96a13589-3084-4502-8a15-6ec9c6ecca36" class="cell" data-execution_count="148">
+<div id="96a13589-3084-4502-8a15-6ec9c6ecca36" class="cell">
 <div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1"></a>np.arange(<span class="dv">1</span>,<span class="dv">6</span>) <span class="co"># np.array(range(1,6))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="148">
 <pre><code>array([1, 2, 3, 4, 5])</code></pre>
