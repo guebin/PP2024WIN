@@ -9,7 +9,7 @@
 <meta name="author" content="최규빈">
 <meta name="dcterms.date" content="2023-07-24">
 
-<title>2024년도 동계 WORKSHOP - Lesson 07: pandas 공부 1단계 ~ 2단계</title>
+<title>2024년도 동계 WORKSHOP - Lesson 07: pandas I</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -159,16 +159,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">강의영상</a></li>
-  <li><a href="#imports" id="toc-imports" class="nav-link" data-scroll-target="#imports">imports</a></li>
-  <li><a href="#pandas-공부-1단계-선언-및-기본정보" id="toc-pandas-공부-1단계-선언-및-기본정보" class="nav-link" data-scroll-target="#pandas-공부-1단계-선언-및-기본정보">pandas 공부 1단계: 선언 및 기본정보</a>
-  <ul class="collapse">
-  <li><a href="#데이터프레임-선언" id="toc-데이터프레임-선언" class="nav-link" data-scroll-target="#데이터프레임-선언">데이터프레임 선언</a></li>
-  <li><a href="#열의-이름-부여" id="toc-열의-이름-부여" class="nav-link" data-scroll-target="#열의-이름-부여">열의 이름 부여</a></li>
-  <li><a href="#행의-이름-부여" id="toc-행의-이름-부여" class="nav-link" data-scroll-target="#행의-이름-부여">행의 이름 부여</a></li>
-  <li><a href="#자료형-len-shape-for문의-반복변수" id="toc-자료형-len-shape-for문의-반복변수" class="nav-link" data-scroll-target="#자료형-len-shape-for문의-반복변수">자료형, len, shape, for문의 반복변수</a></li>
-  </ul></li>
-  <li><a href="#pandas-공부-2단계-행과-열의-선택" id="toc-pandas-공부-2단계-행과-열의-선택" class="nav-link" data-scroll-target="#pandas-공부-2단계-행과-열의-선택">pandas 공부 2단계: 행과 열의 선택</a>
+  <li><a href="#imports" id="toc-imports" class="nav-link active" data-scroll-target="#imports">imports</a></li>
+  <li><a href="#pandas-행과-열의-선택" id="toc-pandas-행과-열의-선택" class="nav-link" data-scroll-target="#pandas-행과-열의-선택">pandas: 행과 열의 선택</a>
   <ul class="collapse">
   <li><a href="#열의-선택" id="toc-열의-선택" class="nav-link" data-scroll-target="#열의-선택">열의 선택</a></li>
   <li><a href="#행의-선택" id="toc-행의-선택" class="nav-link" data-scroll-target="#행의-선택">행의 선택</a></li>
@@ -185,7 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lesson 07: pandas 공부 1단계 ~ 2단계</h1>
+<h1 class="title">Lesson 07: pandas I</h1>
 </div>
 
 
@@ -214,11 +206,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><a href="https://colab.research.google.com/github/guebin/PP2023SUM/blob/main/posts/Day2/03_Pandas/ls07.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
-<section id="강의영상" class="level1">
-<h1>강의영상</h1>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/JkdKck7utkE" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</section>
 <section id="imports" class="level1">
 <h1>imports</h1>
 <div id="720575dc-3bcb-49f2-8550-66f6434d4fa4" class="cell" data-execution_count="1">
@@ -226,670 +213,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="pandas-공부-1단계-선언-및-기본정보" class="level1">
-<h1>pandas 공부 1단계: 선언 및 기본정보</h1>
-<section id="데이터프레임-선언" class="level2">
-<h2 class="anchored" data-anchor-id="데이터프레임-선언">데이터프레임 선언</h2>
-<p><code>-</code> 방법1: dictionary에서 만든다.</p>
-<div id="47aa63f6" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>pd.DataFrame({<span class="st">'att'</span>:[<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">50</span>],<span class="st">'mid'</span>:[<span class="dv">50</span>,<span class="dv">60</span>,<span class="dv">70</span>]})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">att</th>
-<th data-quarto-table-cell-role="th">mid</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>30</td>
-<td>50</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>40</td>
-<td>60</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>50</td>
-<td>70</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="6aa55148" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>pd.DataFrame({<span class="st">'att'</span>:(<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">50</span>),<span class="st">'mid'</span>:(<span class="dv">50</span>,<span class="dv">60</span>,<span class="dv">70</span>)})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">att</th>
-<th data-quarto-table-cell-role="th">mid</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>30</td>
-<td>50</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>40</td>
-<td>60</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>50</td>
-<td>70</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="47768055" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>pd.DataFrame({<span class="st">'att'</span>:np.array([<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">50</span>]),<span class="st">'mid'</span>:np.array([<span class="dv">50</span>,<span class="dv">60</span>,<span class="dv">70</span>])})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">att</th>
-<th data-quarto-table-cell-role="th">mid</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>30</td>
-<td>50</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>40</td>
-<td>60</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>50</td>
-<td>70</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p><code>-</code> 방법: 2차원 ndarray에서 만든다.</p>
-<div id="55290ccd" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>np.arange(<span class="dv">2</span><span class="op">*</span><span class="dv">3</span>).reshape(<span class="dv">2</span>,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="23">
-<pre><code>array([[0, 1, 2],
-       [3, 4, 5]])</code></pre>
-</div>
-</div>
-<div id="76fcfafd" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>pd.DataFrame(np.arange(<span class="dv">2</span><span class="op">*</span><span class="dv">3</span>).reshape(<span class="dv">2</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="24">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">0</th>
-<th data-quarto-table-cell-role="th">1</th>
-<th data-quarto-table-cell-role="th">2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>0</td>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>3</td>
-<td>4</td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</section>
-<section id="열의-이름-부여" class="level2">
-<h2 class="anchored" data-anchor-id="열의-이름-부여">열의 이름 부여</h2>
-<p><code>-</code> 방법1: 딕셔너리를 통하여 만들면 딕셔너리의 key가 자동으로 열의 이름이 된다.</p>
-<div id="4fa3fb73" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>pd.DataFrame({<span class="st">'att'</span>:np.array([<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">50</span>]),<span class="st">'mid'</span>:np.array([<span class="dv">50</span>,<span class="dv">60</span>,<span class="dv">70</span>])})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">att</th>
-<th data-quarto-table-cell-role="th">mid</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>30</td>
-<td>50</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>40</td>
-<td>60</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>50</td>
-<td>70</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p><code>-</code> 방법2: pd.DataFrame()의 옵션에 columns를 이용</p>
-<div id="d616b21a" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>pd.DataFrame(np.arange(<span class="dv">2</span><span class="op">*</span><span class="dv">3</span>).reshape(<span class="dv">2</span>,<span class="dv">3</span>),columns<span class="op">=</span>[<span class="st">'X1'</span>,<span class="st">'X2'</span>,<span class="st">'X3'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="26">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">X1</th>
-<th data-quarto-table-cell-role="th">X2</th>
-<th data-quarto-table-cell-role="th">X3</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>0</td>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>3</td>
-<td>4</td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p><code>-</code> 방법3: df.columns에 원하는 열이름을 덮어씀 (1)</p>
-<div id="01927ad9" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>df<span class="op">=</span>pd.DataFrame(np.arange(<span class="dv">2</span><span class="op">*</span><span class="dv">3</span>).reshape(<span class="dv">2</span>,<span class="dv">3</span>))</span>
-<span id="cb10-2"><a href="#cb10-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="27">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">0</th>
-<th data-quarto-table-cell-role="th">1</th>
-<th data-quarto-table-cell-role="th">2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>0</td>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>3</td>
-<td>4</td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="3b0642b7" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>df.columns <span class="op">=</span> [<span class="st">'X1'</span>,<span class="st">'X2'</span>,<span class="st">'X3'</span>]</span>
-<span id="cb11-2"><a href="#cb11-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="28">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">X1</th>
-<th data-quarto-table-cell-role="th">X2</th>
-<th data-quarto-table-cell-role="th">X3</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>0</td>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>3</td>
-<td>4</td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p><code>-</code> 방법4: df.columns에 원하는 열이름을 덮어씀 (2)</p>
-<div id="224182f6" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>df<span class="op">=</span>pd.DataFrame(np.arange(<span class="dv">2</span><span class="op">*</span><span class="dv">3</span>).reshape(<span class="dv">2</span>,<span class="dv">3</span>))</span>
-<span id="cb12-2"><a href="#cb12-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="29">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">0</th>
-<th data-quarto-table-cell-role="th">1</th>
-<th data-quarto-table-cell-role="th">2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>0</td>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>3</td>
-<td>4</td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="7687ffe6" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>df.columns <span class="op">=</span> pd.Index([<span class="st">'X1'</span>,<span class="st">'X2'</span>,<span class="st">'X3'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="263d541f" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="31">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">X1</th>
-<th data-quarto-table-cell-role="th">X2</th>
-<th data-quarto-table-cell-role="th">X3</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>0</td>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>3</td>
-<td>4</td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p><code>-</code> 방법5: set_axis를 이용</p>
-<div id="367d88fb-91e9-4c68-97e6-245659e56f76" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>df<span class="op">=</span>pd.DataFrame(np.arange(<span class="dv">2</span><span class="op">*</span><span class="dv">3</span>).reshape(<span class="dv">2</span>,<span class="dv">3</span>))</span>
-<span id="cb15-2"><a href="#cb15-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">0</th>
-<th data-quarto-table-cell-role="th">1</th>
-<th data-quarto-table-cell-role="th">2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>0</td>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>3</td>
-<td>4</td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="c87c873c-7a6e-47a0-bf3d-d10c4ec11409" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>df.set_axis(pd.Index([<span class="st">'X1'</span>,<span class="st">'X2'</span>,<span class="st">'X3'</span>]),axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">X1</th>
-<th data-quarto-table-cell-role="th">X2</th>
-<th data-quarto-table-cell-role="th">X3</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>0</td>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>3</td>
-<td>4</td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</section>
-<section id="행의-이름-부여" class="level2">
-<h2 class="anchored" data-anchor-id="행의-이름-부여">행의 이름 부여</h2>
-<p><code>-</code> 방법1: df.set_axis() 를 이용하여 덮어씌운다</p>
-<div id="5ffa95bd" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>df<span class="op">=</span>pd.DataFrame({<span class="st">'att'</span>:[<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">50</span>] , <span class="st">'mid'</span>:[<span class="dv">5</span>,<span class="dv">45</span>,<span class="dv">90</span>]})</span>
-<span id="cb17-2"><a href="#cb17-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">att</th>
-<th data-quarto-table-cell-role="th">mid</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>30</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>40</td>
-<td>45</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>50</td>
-<td>90</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="c899ddc8" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>df.set_axis(pd.Index([<span class="st">'guebin'</span>,<span class="st">'iu'</span>,<span class="st">'hynn'</span>]),axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">att</th>
-<th data-quarto-table-cell-role="th">mid</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">guebin</td>
-<td>30</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">iu</td>
-<td>40</td>
-<td>45</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">hynn</td>
-<td>50</td>
-<td>90</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</section>
-<section id="자료형-len-shape-for문의-반복변수" class="level2">
-<h2 class="anchored" data-anchor-id="자료형-len-shape-for문의-반복변수">자료형, len, shape, for문의 반복변수</h2>
-<div id="e73ea845" class="cell" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'att'</span>:[<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">50</span>],<span class="st">'mid'</span>:[<span class="dv">5</span>,<span class="dv">45</span>,<span class="dv">90</span>]})</span>
-<span id="cb19-2"><a href="#cb19-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="40">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">att</th>
-<th data-quarto-table-cell-role="th">mid</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>30</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>40</td>
-<td>45</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>50</td>
-<td>90</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p><code>-</code> type</p>
-<div id="d43ac14c" class="cell" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="bu">type</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="41">
-<pre><code>pandas.core.frame.DataFrame</code></pre>
-</div>
-</div>
-<p><code>-</code> len</p>
-<div id="f42e21d4" class="cell" data-execution_count="42">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="bu">len</span>(df) <span class="co"># row의 갯수 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="42">
-<pre><code>3</code></pre>
-</div>
-</div>
-<p><code>-</code> shape</p>
-<div id="9e3a1218" class="cell" data-execution_count="43">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>df.shape </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="43">
-<pre><code>(3, 2)</code></pre>
-</div>
-</div>
-<p><code>-</code> for문의 반복변수</p>
-<div id="ca7f7c17-33b8-483a-8116-39ad0d838c5e" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">att</th>
-<th data-quarto-table-cell-role="th">mid</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>30</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>40</td>
-<td>45</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>50</td>
-<td>90</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="2958c6c8" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="cf">for</span> k <span class="kw">in</span> df:</span>
-<span id="cb27-2"><a href="#cb27-2"></a>    <span class="bu">print</span>(k)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>att
-mid</code></pre>
-</div>
-</div>
-<p><strong>참고:</strong> df는 진짜 딕셔너리 느낌 강해요</p>
-<div id="a5666359-f888-4e4f-bbe7-1e2e168c3e5e" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>df.keys()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
-<pre><code>Index(['att', 'mid'], dtype='object')</code></pre>
-</div>
-</div>
-<div id="4377ad9a" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="cf">for</span> col_name,col_array <span class="kw">in</span> df.items():</span>
-<span id="cb31-2"><a href="#cb31-2"></a>    <span class="bu">print</span>(col_array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>0    30
-1    40
-2    50
-Name: att, dtype: int64
-0     5
-1    45
-2    90
-Name: mid, dtype: int64</code></pre>
-</div>
-</div>
-</section>
-</section>
-<section id="pandas-공부-2단계-행과-열의-선택" class="level1">
-<h1>pandas 공부 2단계: 행과 열의 선택</h1>
+<section id="pandas-행과-열의-선택" class="level1">
+<h1>pandas: 행과 열의 선택</h1>
 <p><code>-</code> 데이터</p>
 <div id="c0e3cf0f" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
-<span id="cb33-2"><a href="#cb33-2"></a>att <span class="op">=</span> np.random.choice(np.arange(<span class="dv">10</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
-<span id="cb33-3"><a href="#cb33-3"></a>rep <span class="op">=</span> np.random.choice(np.arange(<span class="dv">5</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
-<span id="cb33-4"><a href="#cb33-4"></a>mid <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
-<span id="cb33-5"><a href="#cb33-5"></a>fin <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
-<span id="cb33-6"><a href="#cb33-6"></a>student_id <span class="op">=</span> [<span class="st">'2022-12'</span><span class="op">+</span><span class="bu">str</span>(s) <span class="cf">for</span> s <span class="kw">in</span> np.random.choice(np.arange(<span class="dv">300</span>,<span class="dv">501</span>),<span class="dv">20</span>,replace<span class="op">=</span><span class="va">False</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>att <span class="op">=</span> np.random.choice(np.arange(<span class="dv">10</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb2-3"><a href="#cb2-3"></a>rep <span class="op">=</span> np.random.choice(np.arange(<span class="dv">5</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb2-4"><a href="#cb2-4"></a>mid <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb2-5"><a href="#cb2-5"></a>fin <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb2-6"><a href="#cb2-6"></a>student_id <span class="op">=</span> [<span class="st">'2022-12'</span><span class="op">+</span><span class="bu">str</span>(s) <span class="cf">for</span> s <span class="kw">in</span> np.random.choice(np.arange(<span class="dv">300</span>,<span class="dv">501</span>),<span class="dv">20</span>,replace<span class="op">=</span><span class="va">False</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="85267e83" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'att'</span>:att,<span class="st">'rep'</span>:rep,<span class="st">'mid'</span>:mid,<span class="st">'fin'</span>:fin})</span>
-<span id="cb34-2"><a href="#cb34-2"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'att'</span>:att,<span class="st">'rep'</span>:rep,<span class="st">'mid'</span>:mid,<span class="st">'fin'</span>:fin})</span>
+<span id="cb3-2"><a href="#cb3-2"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
 <div>
 
@@ -947,8 +284,8 @@ Name: mid, dtype: int64</code></pre>
 </div>
 </div>
 <div id="9672986f-b39d-47c9-8414-bed85c851c69" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>df2 <span class="op">=</span> pd.DataFrame({<span class="st">'id'</span>:student_id,<span class="st">'att'</span>:att,<span class="st">'rep'</span>:rep,<span class="st">'mid'</span>:mid,<span class="st">'fin'</span>:fin})</span>
-<span id="cb35-2"><a href="#cb35-2"></a>df2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>df2 <span class="op">=</span> pd.DataFrame({<span class="st">'id'</span>:student_id,<span class="st">'att'</span>:att,<span class="st">'rep'</span>:rep,<span class="st">'mid'</span>:mid,<span class="st">'fin'</span>:fin})</span>
+<span id="cb4-2"><a href="#cb4-2"></a>df2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
 <div>
 
@@ -1016,80 +353,80 @@ Name: mid, dtype: int64</code></pre>
 <p><code>-</code> 방법1: <code>df.?</code> + str</p>
 <p><code>-</code> 방법2: <code>df[?]</code> + str, [str,str]</p>
 <div id="b4ce0d43-b31f-461c-b6e1-c0f4ccd4ae83" class="cell" data-execution_count="349">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># df['att'] # str </span></span>
-<span id="cb36-2"><a href="#cb36-2"></a><span class="co"># df[['att']] # [str]</span></span>
-<span id="cb36-3"><a href="#cb36-3"></a><span class="co"># df[['att','rep']] # [str,str]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># df['att'] # str </span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co"># df[['att']] # [str]</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co"># df[['att','rep']] # [str,str]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 방법3: <code>df.iloc[:,?]</code> + int, int:int, [int,int], [bool,bool], range</p>
 <div id="ddf35c44" class="cell" data-execution_count="350">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># df.iloc[:,0] # int</span></span>
-<span id="cb37-2"><a href="#cb37-2"></a><span class="co"># df.iloc[:,-2:] # int:int - 슬라이싱</span></span>
-<span id="cb37-3"><a href="#cb37-3"></a><span class="co"># df.iloc[:,1::2] # int:int - 스트라이딩</span></span>
-<span id="cb37-4"><a href="#cb37-4"></a><span class="co"># df.iloc[:,[0]] # [int]</span></span>
-<span id="cb37-5"><a href="#cb37-5"></a><span class="co"># df.iloc[:,[0,1]] # [int,int]</span></span>
-<span id="cb37-6"><a href="#cb37-6"></a><span class="co"># df.iloc[:,[True,True,False,False]] # bool의 list </span></span>
-<span id="cb37-7"><a href="#cb37-7"></a><span class="co"># df.iloc[:,range(2)] # range</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># df.iloc[:,0] # int</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co"># df.iloc[:,-2:] # int:int - 슬라이싱</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co"># df.iloc[:,1::2] # int:int - 스트라이딩</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># df.iloc[:,[0]] # [int]</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co"># df.iloc[:,[0,1]] # [int,int]</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co"># df.iloc[:,[True,True,False,False]] # bool의 list </span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co"># df.iloc[:,range(2)] # range</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 방법4: <code>df.loc[:,?]</code> + str, ‘str:str’, [str,str], [bool,bool]</p>
 <div id="c996519f" class="cell" data-execution_count="357">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># df.loc[:,'att'] # str</span></span>
-<span id="cb38-2"><a href="#cb38-2"></a><span class="co"># df.loc[:,'rep':'mid'] # 'str':'str' -- 칼럼이름으로 슬라이싱 **</span></span>
-<span id="cb38-3"><a href="#cb38-3"></a><span class="co"># df.loc[:,'rep'::2] # 'str':'str' -- 칼럼이름으로 스트라이딩 ** </span></span>
-<span id="cb38-4"><a href="#cb38-4"></a><span class="co"># df.loc[:,['att']] # [str]</span></span>
-<span id="cb38-5"><a href="#cb38-5"></a><span class="co"># df.loc[:,['att','rep']] # [str,str]</span></span>
-<span id="cb38-6"><a href="#cb38-6"></a><span class="co"># df.loc[:,[True,False,False,True]] # bool의 list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># df.loc[:,'att'] # str</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co"># df.loc[:,'rep':'mid'] # 'str':'str' -- 칼럼이름으로 슬라이싱 **</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co"># df.loc[:,'rep'::2] # 'str':'str' -- 칼럼이름으로 스트라이딩 ** </span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># df.loc[:,['att']] # [str]</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co"># df.loc[:,['att','rep']] # [str,str]</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co"># df.loc[:,[True,False,False,True]] # bool의 list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="행의-선택" class="level2">
 <h2 class="anchored" data-anchor-id="행의-선택">행의 선택</h2>
 <p><code>-</code> 방법1: <code>df[]</code> + int:int, str:str, [bool,bool], pd.Series([bool,bool]) – <span class="math inline">\((\star\star\star\star\star)\)</span></p>
 <div id="bfa1db85-d013-4cec-9bd5-201cfc83e3c2" class="cell" data-execution_count="379">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># df[:2] # int:int -- 슬라이싱 // df.iloc[:2,:], df.iloc[:2] 와 같음</span></span>
-<span id="cb39-2"><a href="#cb39-2"></a><span class="co"># df[0:5:2] # int:int -- 스트라이딩 </span></span>
-<span id="cb39-3"><a href="#cb39-3"></a><span class="co"># df[:'2022-12312'] # str:str -- 슬라이싱 // df.loc[:'2022-12312'], df.loc[:'2022-12312',:] 와 같음</span></span>
-<span id="cb39-4"><a href="#cb39-4"></a><span class="co"># df[:'2022-12312':2] # str:str -- 스트라이딩</span></span>
-<span id="cb39-5"><a href="#cb39-5"></a><span class="co"># df[list(df.att &lt; 70)] # [bool,bool]</span></span>
-<span id="cb39-6"><a href="#cb39-6"></a><span class="co"># df[df.att &lt; 70] # pd.Series([bool,bool])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># df[:2] # int:int -- 슬라이싱 // df.iloc[:2,:], df.iloc[:2] 와 같음</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="co"># df[0:5:2] # int:int -- 스트라이딩 </span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co"># df[:'2022-12312'] # str:str -- 슬라이싱 // df.loc[:'2022-12312'], df.loc[:'2022-12312',:] 와 같음</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co"># df[:'2022-12312':2] # str:str -- 스트라이딩</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co"># df[list(df.att &lt; 70)] # [bool,bool]</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co"># df[df.att &lt; 70] # pd.Series([bool,bool])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 방법2: <code>df.iloc[]</code>, <code>df.iloc[,:]</code> + int, int:int, [int,int], [bool,bool], range</p>
 <div id="17edc896" class="cell" data-execution_count="381">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="co"># df.iloc[0] # int </span></span>
-<span id="cb40-2"><a href="#cb40-2"></a><span class="co"># df.iloc[-2:] # int:int -- 슬라이싱</span></span>
-<span id="cb40-3"><a href="#cb40-3"></a><span class="co"># df.iloc[1::2] # int:int -- 스트라이딩</span></span>
-<span id="cb40-4"><a href="#cb40-4"></a><span class="co"># df.iloc[[0]] # [int]</span></span>
-<span id="cb40-5"><a href="#cb40-5"></a><span class="co"># df.iloc[[0,1]] # [int,int]</span></span>
-<span id="cb40-6"><a href="#cb40-6"></a><span class="co"># df.iloc[[True]+[False]*19] # [bool,bool]</span></span>
-<span id="cb40-7"><a href="#cb40-7"></a><span class="co"># df.iloc[range(2)] # range</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># df.iloc[0] # int </span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="co"># df.iloc[-2:] # int:int -- 슬라이싱</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co"># df.iloc[1::2] # int:int -- 스트라이딩</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co"># df.iloc[[0]] # [int]</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="co"># df.iloc[[0,1]] # [int,int]</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="co"># df.iloc[[True]+[False]*19] # [bool,bool]</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co"># df.iloc[range(2)] # range</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="27c47db1" class="cell" data-execution_count="384">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># df.iloc[0,:] # int </span></span>
-<span id="cb41-2"><a href="#cb41-2"></a><span class="co"># df.iloc[-2:,:] # int:int -- 슬라이싱</span></span>
-<span id="cb41-3"><a href="#cb41-3"></a><span class="co"># df.iloc[1::2,:] # int:int -- 스트라이딩</span></span>
-<span id="cb41-4"><a href="#cb41-4"></a><span class="co"># df.iloc[[0],:] # [int]</span></span>
-<span id="cb41-5"><a href="#cb41-5"></a><span class="co"># df.iloc[[0,1],:] # [int,int]</span></span>
-<span id="cb41-6"><a href="#cb41-6"></a><span class="co"># df.iloc[[True]+[False]*19,:] # [bool,bool]</span></span>
-<span id="cb41-7"><a href="#cb41-7"></a><span class="co"># df.iloc[range(2),:] # range</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># df.iloc[0,:] # int </span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="co"># df.iloc[-2:,:] # int:int -- 슬라이싱</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co"># df.iloc[1::2,:] # int:int -- 스트라이딩</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co"># df.iloc[[0],:] # [int]</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="co"># df.iloc[[0,1],:] # [int,int]</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="co"># df.iloc[[True]+[False]*19,:] # [bool,bool]</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="co"># df.iloc[range(2),:] # range</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 방법3: <code>df.loc[]</code>, <code>df.loc[,:]</code> + int, str, int:int, str:str, [int,int], [str,str], [bool,bool], pd.Series([bool,bool])</p>
 <div id="6c6eec49" class="cell" data-execution_count="415">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># df2.loc[0] # int </span></span>
-<span id="cb42-2"><a href="#cb42-2"></a><span class="co"># df.loc['2022-12380'] # str </span></span>
-<span id="cb42-3"><a href="#cb42-3"></a><span class="co"># df2.loc[:2] # int:int </span></span>
-<span id="cb42-4"><a href="#cb42-4"></a><span class="co"># df.loc[:'2022-12363'] # str:str </span></span>
-<span id="cb42-5"><a href="#cb42-5"></a><span class="co"># df2.loc[[0,1]] # [int,int]</span></span>
-<span id="cb42-6"><a href="#cb42-6"></a><span class="co"># df.loc[['2022-12380','2022-12370']] # [str,str]</span></span>
-<span id="cb42-7"><a href="#cb42-7"></a><span class="co"># df.loc[[True]+[False]*19] # [bool,bool]</span></span>
-<span id="cb42-8"><a href="#cb42-8"></a><span class="co"># df.loc[df.att&gt;70] # pd.Series([bool,bool]) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># df2.loc[0] # int </span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="co"># df.loc['2022-12380'] # str </span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="co"># df2.loc[:2] # int:int </span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="co"># df.loc[:'2022-12363'] # str:str </span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="co"># df2.loc[[0,1]] # [int,int]</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="co"># df.loc[['2022-12380','2022-12370']] # [str,str]</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="co"># df.loc[[True]+[False]*19] # [bool,bool]</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a><span class="co"># df.loc[df.att&gt;70] # pd.Series([bool,bool]) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="14c52144-881a-4b4a-929c-99072c559905" class="cell" data-execution_count="416">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># df2.loc[0,:] # int </span></span>
-<span id="cb43-2"><a href="#cb43-2"></a><span class="co"># df.loc['2022-12380',:] # str </span></span>
-<span id="cb43-3"><a href="#cb43-3"></a><span class="co"># df2.loc[:2,:] # int:int </span></span>
-<span id="cb43-4"><a href="#cb43-4"></a><span class="co"># df.loc[:'2022-12363',:] # str:str </span></span>
-<span id="cb43-5"><a href="#cb43-5"></a><span class="co"># df2.loc[[0,1],:] # [int,int]</span></span>
-<span id="cb43-6"><a href="#cb43-6"></a><span class="co"># df.loc[['2022-12380','2022-12370'],:] # [str,str]</span></span>
-<span id="cb43-7"><a href="#cb43-7"></a><span class="co"># df.loc[[True]+[False]*19,:] # [bool,bool]</span></span>
-<span id="cb43-8"><a href="#cb43-8"></a><span class="co"># df.loc[df.att&gt;70,:] # pd.Series([bool,bool]) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># df2.loc[0,:] # int </span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="co"># df.loc['2022-12380',:] # str </span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="co"># df2.loc[:2,:] # int:int </span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="co"># df.loc[:'2022-12363',:] # str:str </span></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="co"># df2.loc[[0,1],:] # [int,int]</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="co"># df.loc[['2022-12380','2022-12370'],:] # [str,str]</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="co"># df.loc[[True]+[False]*19,:] # [bool,bool]</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a><span class="co"># df.loc[df.att&gt;70,:] # pd.Series([bool,bool]) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="요약" class="level2">
@@ -1255,64 +592,64 @@ Name: mid, dtype: int64</code></pre>
 <h2 class="anchored" data-anchor-id="제-스타일">제 스타일</h2>
 <p><code>-</code> <strong>가장 안전한 코드</strong></p>
 <div id="ff90e607-a2af-4b4e-86d1-67a51bfb548e" class="cell" data-execution_count="65">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># df.loc[:,:]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># df.loc[:,:]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 상황1: 하나의 col을 뽑으려 할때 좋은 코드</p>
 <div id="8659f013-12f9-40c3-9d1b-ee2b6a008789" class="cell" data-execution_count="286">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># df.att # 최애 </span></span>
-<span id="cb45-2"><a href="#cb45-2"></a><span class="co"># df['att'] # 차애 </span></span>
-<span id="cb45-3"><a href="#cb45-3"></a><span class="co"># df[['att']] # 차애의 대안</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># df.att # 최애 </span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="co"># df['att'] # 차애 </span></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="co"># df[['att']] # 차애의 대안</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 상황2: row 슬라이싱을 할때 좋은 코드 <span class="math inline">\((\star\star\star)\)</span></p>
 <div id="578579b3-ab7b-4409-bfc2-eac5aeb6125b" class="cell" data-execution_count="73">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># df[:5] # 최애, df.iloc[:5]와 같다. </span></span>
-<span id="cb46-2"><a href="#cb46-2"></a><span class="co"># df[:'2022-12312'] # 차애, df.loc[:'2022-12312'] 와 같다</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># df[:5] # 최애, df.iloc[:5]와 같다. </span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="co"># df[:'2022-12312'] # 차애, df.loc[:'2022-12312'] 와 같다</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 상황3: 조건에 맞는 row를 뽑을때 좋은 코드</p>
 <div id="374952df-9c9f-49da-bbe5-ba59fa03c20d" class="cell" data-execution_count="304">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># df[df.att&lt;60] # 최애</span></span>
-<span id="cb47-2"><a href="#cb47-2"></a><span class="co"># df[[att&lt;60 for att in df.att]] # 차애</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># df[df.att&lt;60] # 최애</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="co"># df[[att&lt;60 for att in df.att]] # 차애</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 상황4: 하나의 row를 뽑으려 할때 좋은 코드</p>
 <div id="b6c8c863-be85-4e6a-a275-f386df649297" class="cell" data-execution_count="305">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a><span class="co"># df.loc[0] # 최애</span></span>
-<span id="cb48-2"><a href="#cb48-2"></a><span class="co"># df.iloc[0] # 최애 </span></span>
-<span id="cb48-3"><a href="#cb48-3"></a><span class="co"># df.loc[[0]] # 최애의 대안</span></span>
-<span id="cb48-4"><a href="#cb48-4"></a><span class="co"># df.iloc[[0]] # 최애의 대안</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># df.loc[0] # 최애</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="co"># df.iloc[0] # 최애 </span></span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="co"># df.loc[[0]] # 최애의 대안</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a><span class="co"># df.iloc[[0]] # 최애의 대안</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 상황5: (row,col)을 뽑으려 할때 좋은 코드</p>
 <div id="6a3c5b60-63d7-4d00-8a52-d0bfa00b2cb5" class="cell" data-execution_count="119">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># 방법1: pd.Series를 뽑고 -&gt; 인덱스로접근</span></span>
-<span id="cb49-2"><a href="#cb49-2"></a><span class="co"># df.att[0]</span></span>
-<span id="cb49-3"><a href="#cb49-3"></a><span class="co"># df['att'][0]</span></span>
-<span id="cb49-4"><a href="#cb49-4"></a></span>
-<span id="cb49-5"><a href="#cb49-5"></a><span class="co"># 방법2: iloc, loc 으로 한번에 뽑기</span></span>
-<span id="cb49-6"><a href="#cb49-6"></a><span class="co"># df.iloc[0,0]</span></span>
-<span id="cb49-7"><a href="#cb49-7"></a><span class="co"># df.loc[0,'att']</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># 방법1: pd.Series를 뽑고 -&gt; 인덱스로접근</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="co"># df.att[0]</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="co"># df['att'][0]</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a></span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="co"># 방법2: iloc, loc 으로 한번에 뽑기</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="co"># df.iloc[0,0]</span></span>
+<span id="cb18-7"><a href="#cb18-7"></a><span class="co"># df.loc[0,'att']</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong><em>위의 상황이외에는 <code>df.loc[:,:]</code>를 사용하는것이 유리하다</em></strong></p>
 <p><code>-</code> 상황6: column 슬라이싱을 할때</p>
 <div id="bb01bd9d-a8ca-48ed-8727-5798cc0347bc" class="cell" data-execution_count="223">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># df.loc[:,'att':'mid'] # 끝점포함</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># df.loc[:,'att':'mid'] # 끝점포함</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 상황7: row + column 슬라이싱을 하는 가장 좋은 코드</p>
 <div id="28b54ecb-9acf-47d3-9a62-c1d8cd3453ff" class="cell" data-execution_count="224">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># df.loc[0:5,'att':'mid']</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># df.loc[0:5,'att':'mid']</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 상황8: 조건에 맞는 col을 뽑기에 가장 좋은 코드</p>
 <div id="0bd34bc6-1054-45a2-bcbd-a6872f44b38e" class="cell" data-execution_count="226">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># df.loc[:,[len(col_name)&gt;2 for col_name in df.columns]]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># df.loc[:,[len(col_name)&gt;2 for col_name in df.columns]]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 상황9: 조건에 맞는 row, col을 뽑기에 가장 좋은 코드</p>
 <div id="e4a995cb-340a-4aa4-b286-9b6aff53c14e" class="cell" data-execution_count="242">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># df.loc[df.att&lt;60,[len(col_name)&gt;2 for col_name in df.columns]]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># df.loc[df.att&lt;60,[len(col_name)&gt;2 for col_name in df.columns]]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="제-스타일-x" class="level2">
 <h2 class="anchored" data-anchor-id="제-스타일-x">제 스타일 X</h2>
 <p><code>-</code> 제가 안쓰는 코드1</p>
 <div id="a6cd5736" class="cell" data-execution_count="125">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>df[:<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>df[:<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="125">
 <div>
 
@@ -1343,14 +680,14 @@ Name: mid, dtype: int64</code></pre>
 </div>
 <p>이러면 내 입장에서는 마치 아래가 동작할 것 같잖아..</p>
 <div id="fdf15e20" class="cell" data-execution_count="302">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>df[<span class="dv">0</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>df[<span class="dv">0</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>KeyError: 0</code></pre>
 </div>
 </div>
 <p><code>-</code> 제가 안쓰는 코드2: bool의 list를 사용할때 iloc은 가급적 쓰지마세요</p>
 <div id="6494de36" class="cell" data-execution_count="128">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>df.iloc[<span class="bu">list</span>(df[<span class="st">'att'</span>]<span class="op">&lt;</span><span class="dv">80</span>),:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>df.iloc[<span class="bu">list</span>(df[<span class="st">'att'</span>]<span class="op">&lt;</span><span class="dv">80</span>),:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="128">
 <div>
 
@@ -1458,7 +795,7 @@ Name: mid, dtype: int64</code></pre>
 </div>
 <p>이러면 마치 아래도 동작할 것 같잖아..</p>
 <div id="b46298e7" class="cell" data-execution_count="419">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>df.iloc[df[<span class="st">'att'</span>]<span class="op">&lt;</span><span class="dv">80</span>,:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>df.iloc[df[<span class="st">'att'</span>]<span class="op">&lt;</span><span class="dv">80</span>,:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>ValueError: Location based indexing can only have [integer, integer slice (START point is INCLUDED, END point is EXCLUDED), listlike of integers, boolean array] types</code></pre>
 </div>
@@ -1469,8 +806,8 @@ Name: mid, dtype: int64</code></pre>
 <h1>Quiz</h1>
 <p><code>(1)</code> 아래와 같은 데이터 프레임을 선언하라.</p>
 <div id="d8f559d7" class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a><span class="im">from</span> IPython.core.display <span class="im">import</span> HTML </span>
-<span id="cb60-2"><a href="#cb60-2"></a>HTML(<span class="st">'&lt;table border="1" class="dataframe"&gt;</span><span class="ch">\n</span><span class="st">  &lt;thead&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr style="text-align: right;"&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;A&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;B&lt;/th&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">  &lt;/thead&gt;</span><span class="ch">\n</span><span class="st">  &lt;tbody&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;0&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;1&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-2&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;1&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;2&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-3&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;2&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;3&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-4&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">  &lt;/tbody&gt;</span><span class="ch">\n</span><span class="st">&lt;/table&gt;'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="im">from</span> IPython.core.display <span class="im">import</span> HTML </span>
+<span id="cb29-2"><a href="#cb29-2"></a>HTML(<span class="st">'&lt;table border="1" class="dataframe"&gt;</span><span class="ch">\n</span><span class="st">  &lt;thead&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr style="text-align: right;"&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;A&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;B&lt;/th&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">  &lt;/thead&gt;</span><span class="ch">\n</span><span class="st">  &lt;tbody&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;0&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;1&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-2&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;1&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;2&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-3&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;2&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;3&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-4&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">  &lt;/tbody&gt;</span><span class="ch">\n</span><span class="st">&lt;/table&gt;'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1502,8 +839,8 @@ Name: mid, dtype: int64</code></pre>
 </div>
 <p><code>(2)</code> Column을 이름을 X1, X2로 변경하라. 출력결과는 아래와 같아야 한다.</p>
 <div id="4bf25299" class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a><span class="im">from</span> IPython.core.display <span class="im">import</span> HTML </span>
-<span id="cb61-2"><a href="#cb61-2"></a>HTML(<span class="st">'&lt;table border="1" class="dataframe"&gt;</span><span class="ch">\n</span><span class="st">  &lt;thead&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr style="text-align: right;"&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;X1&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;X2&lt;/th&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">  &lt;/thead&gt;</span><span class="ch">\n</span><span class="st">  &lt;tbody&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;0&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;1&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-2&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;1&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;2&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-3&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;2&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;3&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-4&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">  &lt;/tbody&gt;</span><span class="ch">\n</span><span class="st">&lt;/table&gt;'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="im">from</span> IPython.core.display <span class="im">import</span> HTML </span>
+<span id="cb30-2"><a href="#cb30-2"></a>HTML(<span class="st">'&lt;table border="1" class="dataframe"&gt;</span><span class="ch">\n</span><span class="st">  &lt;thead&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr style="text-align: right;"&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;X1&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;X2&lt;/th&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">  &lt;/thead&gt;</span><span class="ch">\n</span><span class="st">  &lt;tbody&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;0&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;1&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-2&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;1&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;2&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-3&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;2&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;3&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-4&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">  &lt;/tbody&gt;</span><span class="ch">\n</span><span class="st">&lt;/table&gt;'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1535,8 +872,8 @@ Name: mid, dtype: int64</code></pre>
 </div>
 <p><code>(3)-(5)</code> 아래와 같은 자료를 고려하자.</p>
 <div id="00c887d0" class="cell" data-execution_count="129">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a>df <span class="op">=</span> pd.DataFrame(np.random.normal(size<span class="op">=</span>(<span class="dv">100</span>,<span class="dv">5</span>)),columns<span class="op">=</span><span class="bu">list</span>(<span class="st">'ABCDE'</span>))</span>
-<span id="cb62-2"><a href="#cb62-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>df <span class="op">=</span> pd.DataFrame(np.random.normal(size<span class="op">=</span>(<span class="dv">100</span>,<span class="dv">5</span>)),columns<span class="op">=</span><span class="bu">list</span>(<span class="st">'ABCDE'</span>))</span>
+<span id="cb31-2"><a href="#cb31-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="129">
 <div>
 
@@ -1650,7 +987,7 @@ Name: mid, dtype: int64</code></pre>
 </div>
 <p><code>(3)</code> B,D열을 선택하라.</p>
 <div id="3e273c28-24c9-41f5-9448-169ed5896ede" class="cell" data-execution_count="130">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a>df.loc[:,[<span class="st">'B'</span>,<span class="st">'D'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>df.loc[:,[<span class="st">'B'</span>,<span class="st">'D'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="130">
 <div>
 
@@ -1728,7 +1065,7 @@ Name: mid, dtype: int64</code></pre>
 </div>
 <p><code>(4)</code> 마지막 10개의 row를 출력하라.</p>
 <div id="c4b60d47-d5fd-4c13-93a6-7f40e0596115" class="cell" data-execution_count="131">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a>df[<span class="op">-</span><span class="dv">10</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>df[<span class="op">-</span><span class="dv">10</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="131">
 <div>
 
@@ -1833,7 +1170,7 @@ Name: mid, dtype: int64</code></pre>
 </div>
 <p><code>(5)</code> A,B 열의 처음 10개의 row를 출력하라.</p>
 <div id="46213a2d-b9f4-4f19-9a95-bf04305c7e73" class="cell" data-execution_count="133">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a>df.loc[:<span class="dv">10</span>,[<span class="st">'A'</span>,<span class="st">'B'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>df.loc[:<span class="dv">10</span>,[<span class="st">'A'</span>,<span class="st">'B'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="133">
 <div>
 
@@ -1910,8 +1247,8 @@ Name: mid, dtype: int64</code></pre>
 </div>
 <p><code>(6)-(10)</code> 아래와 같은 자료를 고려하자.</p>
 <div id="b42e10d7" class="cell" data-execution_count="134">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/PacktPublishing/Pandas-Cookbook/master/data/movie.csv'</span>)</span>
-<span id="cb66-2"><a href="#cb66-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/PacktPublishing/Pandas-Cookbook/master/data/movie.csv'</span>)</span>
+<span id="cb35-2"><a href="#cb35-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="134">
 <div>
 
@@ -2217,21 +1554,21 @@ Name: mid, dtype: int64</code></pre>
 </div>
 <p><code>(6)</code> 이 데이터프레임에는 몇개의 컬럼이 있는지 count하라.</p>
 <div id="824856a0-3b78-49cd-9837-e495d164302e" class="cell" data-execution_count="137">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a><span class="bu">len</span>(df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="bu">len</span>(df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="137">
 <pre><code>28</code></pre>
 </div>
 </div>
 <p><code>(7)</code> 데이터프레임의 컬럼이름이 c혹은 d로 시작하는 열은 몇개 있는지 세어보라.</p>
 <div id="602bec92-d4e0-48d6-85dd-24905c338996" class="cell" data-execution_count="141">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a><span class="bu">sum</span>([l[<span class="dv">0</span>]<span class="op">==</span><span class="st">'c'</span> <span class="kw">or</span> l[<span class="dv">0</span>]<span class="op">==</span><span class="st">'d'</span> <span class="cf">for</span> l <span class="kw">in</span> df.columns])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="bu">sum</span>([l[<span class="dv">0</span>]<span class="op">==</span><span class="st">'c'</span> <span class="kw">or</span> l[<span class="dv">0</span>]<span class="op">==</span><span class="st">'d'</span> <span class="cf">for</span> l <span class="kw">in</span> df.columns])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="141">
 <pre><code>7</code></pre>
 </div>
 </div>
 <p><code>(8)</code> c 혹은 d로 시작하는 열을 출력하라.</p>
 <div id="d8d1af24-272e-4868-89d8-50009d9677a7" class="cell" data-execution_count="146">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a>df.loc[:,[l[<span class="dv">0</span>]<span class="op">==</span><span class="st">'c'</span> <span class="kw">or</span> l[<span class="dv">0</span>]<span class="op">==</span><span class="st">'d'</span> <span class="cf">for</span> l <span class="kw">in</span> df.columns]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>df.loc[:,[l[<span class="dv">0</span>]<span class="op">==</span><span class="st">'c'</span> <span class="kw">or</span> l[<span class="dv">0</span>]<span class="op">==</span><span class="st">'d'</span> <span class="cf">for</span> l <span class="kw">in</span> df.columns]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="146">
 <div>
 
@@ -2369,7 +1706,7 @@ Name: mid, dtype: int64</code></pre>
 </div>
 <p><code>(9)</code> 이 데이터프레임에서 ’actor’라는 단어가 포함된 열의 출력하라.</p>
 <div id="be033865-fd56-4b18-9884-fce707079c4a" class="cell" data-execution_count="153">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a>df.loc[:,[<span class="st">'actor'</span> <span class="kw">in</span> l <span class="cf">for</span> l <span class="kw">in</span> df.columns]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>df.loc[:,[<span class="st">'actor'</span> <span class="kw">in</span> l <span class="cf">for</span> l <span class="kw">in</span> df.columns]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="153">
 <div>
 

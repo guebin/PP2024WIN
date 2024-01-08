@@ -9,7 +9,7 @@
 <meta name="author" content="최규빈">
 <meta name="dcterms.date" content="2023-07-24">
 
-<title>2024년도 동계 WORKSHOP - Lesson 05: numpy 공부 1단계 ~ 2단계</title>
+<title>2024년도 동계 WORKSHOP - Lesson 05: numpy I</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -182,7 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lesson 05: numpy 공부 1단계 ~ 2단계</h1>
+<h1 class="title">Lesson 05: numpy I</h1>
 </div>
 
 
@@ -211,7 +211,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><a href="https://colab.research.google.com/github/guebin/PP2023SUM/blob/main/posts/Day1/02_Numpy/ls06.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
 <section id="import" class="level1">
 <h1>import</h1>
 <div id="8adbbe65-da8c-4f20-ab65-6301e6e1bfc1" class="cell" data-execution_count="1">
@@ -226,8 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>a<span class="op">=</span>np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]) <span class="co"># list를 만들고 ndarray화 시킴 </span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>l<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="기본연산-브로드캐스팅" class="level4">
-<h4 class="anchored" data-anchor-id="기본연산-브로드캐스팅">기본연산 브로드캐스팅</h4>
+<p><strong>기본연산 브로드캐스팅</strong></p>
 <div id="8c94ee51-e9b5-4838-9ee8-df1eaa8bff56" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>a<span class="op">+</span><span class="dv">1</span> <span class="co">## [1,2,3] + 1 = [2,3,4]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
@@ -288,7 +286,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>TypeError: unsupported operand type(s) for %: 'list' and 'int'</code></pre>
 </div>
 </div>
-</section>
 </section>
 <section id="기타수학연산지원" class="level2">
 <h2 class="anchored" data-anchor-id="기타수학연산지원">기타수학연산지원</h2>
