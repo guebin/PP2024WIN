@@ -157,7 +157,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#plotnine" id="toc-plotnine" class="nav-link active" data-scroll-target="#plotnine">Plotnine</a>
+  <li><a href="#imports" id="toc-imports" class="nav-link active" data-scroll-target="#imports">Imports</a></li>
+  <li><a href="#plotnine" id="toc-plotnine" class="nav-link" data-scroll-target="#plotnine">Plotnine</a>
   <ul class="collapse">
   <li><a href="#a.-열의-이름에서-공백제거" id="toc-a.-열의-이름에서-공백제거" class="nav-link" data-scroll-target="#a.-열의-이름에서-공백제거">A. 열의 이름에서 공백제거</a></li>
   <li><a href="#b.-결측치제거" id="toc-b.-결측치제거" class="nav-link" data-scroll-target="#b.-결측치제거">B. 결측치제거</a></li>
@@ -203,13 +204,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><a href="https://colab.research.google.com/github/guebin/PP2024WIN/blob/main/posts/Day3/ls13.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
+<section id="imports" class="level1">
+<h1>Imports</h1>
+<div id="23199b2c-053f-43fb-8d49-c5397101134e" class="cell" data-tags="[]" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 <section id="plotnine" class="level1">
 <h1>Plotnine</h1>
 <p>아래는 FIFA22의 자료를 불러오는 코드이다.</p>
-<div id="f1d944a1-ca86-4dcb-bdc8-ae4e11e6e367" class="cell" data-tags="[]" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2021/master/_notebooks/2021-10-25-FIFA22_official_data.csv'</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="35">
+<div id="f1d944a1-ca86-4dcb-bdc8-ae4e11e6e367" class="cell" data-tags="[]" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2021/master/_notebooks/2021-10-25-FIFA22_official_data.csv'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
 
@@ -369,9 +377,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>포지션별로 선수들의 능력치(<code>ShotPower</code>,<code>SlidingTackle</code>)와 급여(<code>Wage</code>)를 시각화하고 싶다. 아래의 세부지침에 맞추어 포지션별 <code>ShotPower</code>와 <code>SlidingTackle</code>의 산점도를 그려라.</p>
-<div id="e94d16d4-9369-4672-afde-8731925c5d68" class="cell" data-tags="[]" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>df.Position</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div id="3b12f9fb-6eda-408d-85c5-676526ebb07b" class="cell" data-tags="[]" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>df.Position</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>0        &lt;span class="pos pos18"&gt;CAM
 1        &lt;span class="pos pos11"&gt;LDM
 2         &lt;span class="pos pos24"&gt;RS
@@ -390,17 +398,17 @@ Name: Position, Length: 16710, dtype: object</code></pre>
 <p><strong>A</strong>. Column의 이름에서 공백을 제거하라.</p>
 <p><strong>B</strong>. 결측치가 50%이상인 컬럼을 찾고 이를 제거하라. 그 뒤에 <code>.dropna()</code>를 사용하여 결측치가 포함된 행을 제거하라.</p>
 <p><strong>C</strong>. <code>position_dict</code>를 이용하여 <code>df.Position</code>을 적절하게 변환하라. 변환된 값을 <code>df.Position</code>에 저장하라.</p>
-<div id="87d59d37-0592-4a60-8c8c-c973c940357a" class="cell" data-tags="[]" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>position_dict <span class="op">=</span> {</span>
-<span id="cb4-2"><a href="#cb4-2"></a>    <span class="st">'GOALKEEPER'</span>:{<span class="st">'GK'</span>},</span>
-<span id="cb4-3"><a href="#cb4-3"></a>    <span class="st">'DEFENDER'</span>:{<span class="st">'CB'</span>,<span class="st">'RCB'</span>,<span class="st">'LCB'</span>,<span class="st">'RB'</span>,<span class="st">'LB'</span>,<span class="st">'RWB'</span>,<span class="st">'LWB'</span>},</span>
-<span id="cb4-4"><a href="#cb4-4"></a>    <span class="st">'MIDFIELDER'</span>:{<span class="st">'CM'</span>,<span class="st">'RCM'</span>,<span class="st">'LCM'</span>,<span class="st">'CDM'</span>,<span class="st">'RDM'</span>,<span class="st">'LDM'</span>,<span class="st">'CAM'</span>,<span class="st">'RAM'</span>,<span class="st">'LAM'</span>,<span class="st">'RM'</span>,<span class="st">'LM'</span>},</span>
-<span id="cb4-5"><a href="#cb4-5"></a>    <span class="st">'FORWARD'</span>:{<span class="st">'ST'</span>,<span class="st">'CF'</span>,<span class="st">'RF'</span>,<span class="st">'LF'</span>,<span class="st">'RW'</span>,<span class="st">'LW'</span>,<span class="st">'RS'</span>,<span class="st">'LS'</span>},</span>
-<span id="cb4-6"><a href="#cb4-6"></a>    <span class="st">'SUB'</span>:{<span class="st">'SUB'</span>},</span>
-<span id="cb4-7"><a href="#cb4-7"></a>    <span class="st">'RES'</span>:{<span class="st">'RES'</span>}</span>
-<span id="cb4-8"><a href="#cb4-8"></a>}</span>
-<span id="cb4-9"><a href="#cb4-9"></a>position_dict</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div id="87d59d37-0592-4a60-8c8c-c973c940357a" class="cell" data-tags="[]" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>position_dict <span class="op">=</span> {</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="st">'GOALKEEPER'</span>:{<span class="st">'GK'</span>},</span>
+<span id="cb5-3"><a href="#cb5-3"></a>    <span class="st">'DEFENDER'</span>:{<span class="st">'CB'</span>,<span class="st">'RCB'</span>,<span class="st">'LCB'</span>,<span class="st">'RB'</span>,<span class="st">'LB'</span>,<span class="st">'RWB'</span>,<span class="st">'LWB'</span>},</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    <span class="st">'MIDFIELDER'</span>:{<span class="st">'CM'</span>,<span class="st">'RCM'</span>,<span class="st">'LCM'</span>,<span class="st">'CDM'</span>,<span class="st">'RDM'</span>,<span class="st">'LDM'</span>,<span class="st">'CAM'</span>,<span class="st">'RAM'</span>,<span class="st">'LAM'</span>,<span class="st">'RM'</span>,<span class="st">'LM'</span>},</span>
+<span id="cb5-5"><a href="#cb5-5"></a>    <span class="st">'FORWARD'</span>:{<span class="st">'ST'</span>,<span class="st">'CF'</span>,<span class="st">'RF'</span>,<span class="st">'LF'</span>,<span class="st">'RW'</span>,<span class="st">'LW'</span>,<span class="st">'RS'</span>,<span class="st">'LS'</span>},</span>
+<span id="cb5-6"><a href="#cb5-6"></a>    <span class="st">'SUB'</span>:{<span class="st">'SUB'</span>},</span>
+<span id="cb5-7"><a href="#cb5-7"></a>    <span class="st">'RES'</span>:{<span class="st">'RES'</span>}</span>
+<span id="cb5-8"><a href="#cb5-8"></a>}</span>
+<span id="cb5-9"><a href="#cb5-9"></a>position_dict</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>{'GOALKEEPER': {'GK'},
  'DEFENDER': {'CB', 'LB', 'LCB', 'LWB', 'RB', 'RCB', 'RWB'},
  'MIDFIELDER': {'CAM',
@@ -423,29 +431,980 @@ Name: Position, Length: 16710, dtype: object</code></pre>
 <p><strong>E</strong>. <code>Position==“DEFENDER”</code> or <code>Position==“FORWARD”</code>에 해당하는 관측치를 고른 뒤 x축에 <code>ShotPower</code>, y축에 <code>SlidingTackle</code>을 시각화하라. 이때 <code>Position</code>은 color로 구분하고 <code>Wage</code>는 size와 alpha로 구분하라.</p>
 <p>— 시각화예시 —</p>
 <div id="41515276-30ae-427f-919f-dac3ce9c893e" class="cell" data-tags="[]" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ls13_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="ls13_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <section id="a.-열의-이름에서-공백제거" class="level2">
 <h2 class="anchored" data-anchor-id="a.-열의-이름에서-공백제거">A. 열의 이름에서 공백제거</h2>
+<div id="1d9b6afb-2185-45db-ac5a-ab045a2a5a65" class="cell" data-tags="[]" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>df.columns <span class="op">=</span> [l.replace(<span class="st">' '</span>,<span class="st">''</span>) <span class="cf">for</span> l <span class="kw">in</span> df.columns]</span>
+<span id="cb8-2"><a href="#cb8-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Photo</th>
+<th data-quarto-table-cell-role="th">Nationality</th>
+<th data-quarto-table-cell-role="th">Flag</th>
+<th data-quarto-table-cell-role="th">Overall</th>
+<th data-quarto-table-cell-role="th">Potential</th>
+<th data-quarto-table-cell-role="th">Club</th>
+<th data-quarto-table-cell-role="th">ClubLogo</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">SlidingTackle</th>
+<th data-quarto-table-cell-role="th">GKDiving</th>
+<th data-quarto-table-cell-role="th">GKHandling</th>
+<th data-quarto-table-cell-role="th">GKKicking</th>
+<th data-quarto-table-cell-role="th">GKPositioning</th>
+<th data-quarto-table-cell-role="th">GKReflexes</th>
+<th data-quarto-table-cell-role="th">BestPosition</th>
+<th data-quarto-table-cell-role="th">BestOverallRating</th>
+<th data-quarto-table-cell-role="th">ReleaseClause</th>
+<th data-quarto-table-cell-role="th">DefensiveAwareness</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>212198</td>
+<td>Bruno Fernandes</td>
+<td>26</td>
+<td>https://cdn.sofifa.com/players/212/198/22_60.png</td>
+<td>Portugal</td>
+<td>https://cdn.sofifa.com/flags/pt.png</td>
+<td>88</td>
+<td>89</td>
+<td>Manchester United</td>
+<td>https://cdn.sofifa.com/teams/11/30.png</td>
+<td>...</td>
+<td>65.0</td>
+<td>12.0</td>
+<td>14.0</td>
+<td>15.0</td>
+<td>8.0</td>
+<td>14.0</td>
+<td>CAM</td>
+<td>88.0</td>
+<td>€206.9M</td>
+<td>72.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>209658</td>
+<td>L. Goretzka</td>
+<td>26</td>
+<td>https://cdn.sofifa.com/players/209/658/22_60.png</td>
+<td>Germany</td>
+<td>https://cdn.sofifa.com/flags/de.png</td>
+<td>87</td>
+<td>88</td>
+<td>FC Bayern München</td>
+<td>https://cdn.sofifa.com/teams/21/30.png</td>
+<td>...</td>
+<td>77.0</td>
+<td>13.0</td>
+<td>8.0</td>
+<td>15.0</td>
+<td>11.0</td>
+<td>9.0</td>
+<td>CM</td>
+<td>87.0</td>
+<td>€160.4M</td>
+<td>74.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>176580</td>
+<td>L. Suárez</td>
+<td>34</td>
+<td>https://cdn.sofifa.com/players/176/580/22_60.png</td>
+<td>Uruguay</td>
+<td>https://cdn.sofifa.com/flags/uy.png</td>
+<td>88</td>
+<td>88</td>
+<td>Atlético de Madrid</td>
+<td>https://cdn.sofifa.com/teams/240/30.png</td>
+<td>...</td>
+<td>38.0</td>
+<td>27.0</td>
+<td>25.0</td>
+<td>31.0</td>
+<td>33.0</td>
+<td>37.0</td>
+<td>ST</td>
+<td>88.0</td>
+<td>€91.2M</td>
+<td>42.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>192985</td>
+<td>K. De Bruyne</td>
+<td>30</td>
+<td>https://cdn.sofifa.com/players/192/985/22_60.png</td>
+<td>Belgium</td>
+<td>https://cdn.sofifa.com/flags/be.png</td>
+<td>91</td>
+<td>91</td>
+<td>Manchester City</td>
+<td>https://cdn.sofifa.com/teams/10/30.png</td>
+<td>...</td>
+<td>53.0</td>
+<td>15.0</td>
+<td>13.0</td>
+<td>5.0</td>
+<td>10.0</td>
+<td>13.0</td>
+<td>CM</td>
+<td>91.0</td>
+<td>€232.2M</td>
+<td>68.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>224334</td>
+<td>M. Acuña</td>
+<td>29</td>
+<td>https://cdn.sofifa.com/players/224/334/22_60.png</td>
+<td>Argentina</td>
+<td>https://cdn.sofifa.com/flags/ar.png</td>
+<td>84</td>
+<td>84</td>
+<td>Sevilla FC</td>
+<td>https://cdn.sofifa.com/teams/481/30.png</td>
+<td>...</td>
+<td>82.0</td>
+<td>8.0</td>
+<td>14.0</td>
+<td>13.0</td>
+<td>13.0</td>
+<td>14.0</td>
+<td>LB</td>
+<td>84.0</td>
+<td>€77.7M</td>
+<td>80.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16705</td>
+<td>240558</td>
+<td>18&nbsp;L. Clayton</td>
+<td>17</td>
+<td>https://cdn.sofifa.com/players/240/558/18_60.png</td>
+<td>England</td>
+<td>https://cdn.sofifa.com/flags/gb-eng.png</td>
+<td>53</td>
+<td>70</td>
+<td>Cheltenham Town</td>
+<td>https://cdn.sofifa.com/teams/1936/30.png</td>
+<td>...</td>
+<td>12.0</td>
+<td>55.0</td>
+<td>54.0</td>
+<td>52.0</td>
+<td>50.0</td>
+<td>59.0</td>
+<td>GK</td>
+<td>52.0</td>
+<td>€238K</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">16706</td>
+<td>262846</td>
+<td>�. Dobre</td>
+<td>20</td>
+<td>https://cdn.sofifa.com/players/262/846/22_60.png</td>
+<td>Romania</td>
+<td>https://cdn.sofifa.com/flags/ro.png</td>
+<td>53</td>
+<td>63</td>
+<td>FC Academica Clinceni</td>
+<td>https://cdn.sofifa.com/teams/113391/30.png</td>
+<td>...</td>
+<td>12.0</td>
+<td>57.0</td>
+<td>52.0</td>
+<td>53.0</td>
+<td>48.0</td>
+<td>58.0</td>
+<td>GK</td>
+<td>53.0</td>
+<td>€279K</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16707</td>
+<td>241317</td>
+<td>21&nbsp;Xue Qinghao</td>
+<td>19</td>
+<td>https://cdn.sofifa.com/players/241/317/21_60.png</td>
+<td>China PR</td>
+<td>https://cdn.sofifa.com/flags/cn.png</td>
+<td>47</td>
+<td>60</td>
+<td>Shanghai Shenhua FC</td>
+<td>https://cdn.sofifa.com/teams/110955/30.png</td>
+<td>...</td>
+<td>9.0</td>
+<td>49.0</td>
+<td>48.0</td>
+<td>45.0</td>
+<td>38.0</td>
+<td>52.0</td>
+<td>GK</td>
+<td>47.0</td>
+<td>€223K</td>
+<td>21.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">16708</td>
+<td>259646</td>
+<td>A. Shaikh</td>
+<td>18</td>
+<td>https://cdn.sofifa.com/players/259/646/22_60.png</td>
+<td>India</td>
+<td>https://cdn.sofifa.com/flags/in.png</td>
+<td>47</td>
+<td>67</td>
+<td>ATK Mohun Bagan FC</td>
+<td>https://cdn.sofifa.com/teams/113146/30.png</td>
+<td>...</td>
+<td>13.0</td>
+<td>49.0</td>
+<td>41.0</td>
+<td>39.0</td>
+<td>45.0</td>
+<td>49.0</td>
+<td>GK</td>
+<td>47.0</td>
+<td>€259K</td>
+<td>7.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16709</td>
+<td>178453</td>
+<td>07&nbsp;A. Censori</td>
+<td>17</td>
+<td>https://cdn.sofifa.com/players/178/453/07_60.png</td>
+<td>Italy</td>
+<td>https://cdn.sofifa.com/flags/it.png</td>
+<td>28</td>
+<td>38</td>
+<td>Arezzo</td>
+<td>https://cdn.sofifa.com/teams/110907/30.png</td>
+<td>...</td>
+<td>NaN</td>
+<td>7.0</td>
+<td>1.0</td>
+<td>36.0</td>
+<td>6.0</td>
+<td>9.0</td>
+<td>ST</td>
+<td>36.0</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+<p>16710 rows × 65 columns</p>
+</div>
+</div>
+</div>
 </section>
 <section id="b.-결측치제거" class="level2">
 <h2 class="anchored" data-anchor-id="b.-결측치제거">B. 결측치제거</h2>
+<div id="846039a1-efad-4f82-a927-3c2123a658c4" class="cell" data-tags="[]" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>df <span class="op">=</span> df.loc[:,df.isna().mean(axis<span class="op">=</span><span class="dv">0</span>)<span class="op">&lt;</span><span class="fl">0.5</span>].dropna()</span>
+<span id="cb9-2"><a href="#cb9-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Photo</th>
+<th data-quarto-table-cell-role="th">Nationality</th>
+<th data-quarto-table-cell-role="th">Flag</th>
+<th data-quarto-table-cell-role="th">Overall</th>
+<th data-quarto-table-cell-role="th">Potential</th>
+<th data-quarto-table-cell-role="th">Club</th>
+<th data-quarto-table-cell-role="th">ClubLogo</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">SlidingTackle</th>
+<th data-quarto-table-cell-role="th">GKDiving</th>
+<th data-quarto-table-cell-role="th">GKHandling</th>
+<th data-quarto-table-cell-role="th">GKKicking</th>
+<th data-quarto-table-cell-role="th">GKPositioning</th>
+<th data-quarto-table-cell-role="th">GKReflexes</th>
+<th data-quarto-table-cell-role="th">BestPosition</th>
+<th data-quarto-table-cell-role="th">BestOverallRating</th>
+<th data-quarto-table-cell-role="th">ReleaseClause</th>
+<th data-quarto-table-cell-role="th">DefensiveAwareness</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>212198</td>
+<td>Bruno Fernandes</td>
+<td>26</td>
+<td>https://cdn.sofifa.com/players/212/198/22_60.png</td>
+<td>Portugal</td>
+<td>https://cdn.sofifa.com/flags/pt.png</td>
+<td>88</td>
+<td>89</td>
+<td>Manchester United</td>
+<td>https://cdn.sofifa.com/teams/11/30.png</td>
+<td>...</td>
+<td>65.0</td>
+<td>12.0</td>
+<td>14.0</td>
+<td>15.0</td>
+<td>8.0</td>
+<td>14.0</td>
+<td>CAM</td>
+<td>88.0</td>
+<td>€206.9M</td>
+<td>72.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>209658</td>
+<td>L. Goretzka</td>
+<td>26</td>
+<td>https://cdn.sofifa.com/players/209/658/22_60.png</td>
+<td>Germany</td>
+<td>https://cdn.sofifa.com/flags/de.png</td>
+<td>87</td>
+<td>88</td>
+<td>FC Bayern München</td>
+<td>https://cdn.sofifa.com/teams/21/30.png</td>
+<td>...</td>
+<td>77.0</td>
+<td>13.0</td>
+<td>8.0</td>
+<td>15.0</td>
+<td>11.0</td>
+<td>9.0</td>
+<td>CM</td>
+<td>87.0</td>
+<td>€160.4M</td>
+<td>74.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>176580</td>
+<td>L. Suárez</td>
+<td>34</td>
+<td>https://cdn.sofifa.com/players/176/580/22_60.png</td>
+<td>Uruguay</td>
+<td>https://cdn.sofifa.com/flags/uy.png</td>
+<td>88</td>
+<td>88</td>
+<td>Atlético de Madrid</td>
+<td>https://cdn.sofifa.com/teams/240/30.png</td>
+<td>...</td>
+<td>38.0</td>
+<td>27.0</td>
+<td>25.0</td>
+<td>31.0</td>
+<td>33.0</td>
+<td>37.0</td>
+<td>ST</td>
+<td>88.0</td>
+<td>€91.2M</td>
+<td>42.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>192985</td>
+<td>K. De Bruyne</td>
+<td>30</td>
+<td>https://cdn.sofifa.com/players/192/985/22_60.png</td>
+<td>Belgium</td>
+<td>https://cdn.sofifa.com/flags/be.png</td>
+<td>91</td>
+<td>91</td>
+<td>Manchester City</td>
+<td>https://cdn.sofifa.com/teams/10/30.png</td>
+<td>...</td>
+<td>53.0</td>
+<td>15.0</td>
+<td>13.0</td>
+<td>5.0</td>
+<td>10.0</td>
+<td>13.0</td>
+<td>CM</td>
+<td>91.0</td>
+<td>€232.2M</td>
+<td>68.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>224334</td>
+<td>M. Acuña</td>
+<td>29</td>
+<td>https://cdn.sofifa.com/players/224/334/22_60.png</td>
+<td>Argentina</td>
+<td>https://cdn.sofifa.com/flags/ar.png</td>
+<td>84</td>
+<td>84</td>
+<td>Sevilla FC</td>
+<td>https://cdn.sofifa.com/teams/481/30.png</td>
+<td>...</td>
+<td>82.0</td>
+<td>8.0</td>
+<td>14.0</td>
+<td>13.0</td>
+<td>13.0</td>
+<td>14.0</td>
+<td>LB</td>
+<td>84.0</td>
+<td>€77.7M</td>
+<td>80.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16703</td>
+<td>259718</td>
+<td>F. Gebhardt</td>
+<td>19</td>
+<td>https://cdn.sofifa.com/players/259/718/22_60.png</td>
+<td>Germany</td>
+<td>https://cdn.sofifa.com/flags/de.png</td>
+<td>52</td>
+<td>66</td>
+<td>FC Basel 1893</td>
+<td>https://cdn.sofifa.com/teams/896/30.png</td>
+<td>...</td>
+<td>10.0</td>
+<td>53.0</td>
+<td>45.0</td>
+<td>47.0</td>
+<td>52.0</td>
+<td>57.0</td>
+<td>GK</td>
+<td>52.0</td>
+<td>€361K</td>
+<td>6.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">16704</td>
+<td>251433</td>
+<td>B. Voll</td>
+<td>20</td>
+<td>https://cdn.sofifa.com/players/251/433/22_60.png</td>
+<td>Germany</td>
+<td>https://cdn.sofifa.com/flags/de.png</td>
+<td>58</td>
+<td>69</td>
+<td>F.C. Hansa Rostock</td>
+<td>https://cdn.sofifa.com/teams/27/30.png</td>
+<td>...</td>
+<td>10.0</td>
+<td>59.0</td>
+<td>60.0</td>
+<td>56.0</td>
+<td>55.0</td>
+<td>61.0</td>
+<td>GK</td>
+<td>58.0</td>
+<td>€656K</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16706</td>
+<td>262846</td>
+<td>�. Dobre</td>
+<td>20</td>
+<td>https://cdn.sofifa.com/players/262/846/22_60.png</td>
+<td>Romania</td>
+<td>https://cdn.sofifa.com/flags/ro.png</td>
+<td>53</td>
+<td>63</td>
+<td>FC Academica Clinceni</td>
+<td>https://cdn.sofifa.com/teams/113391/30.png</td>
+<td>...</td>
+<td>12.0</td>
+<td>57.0</td>
+<td>52.0</td>
+<td>53.0</td>
+<td>48.0</td>
+<td>58.0</td>
+<td>GK</td>
+<td>53.0</td>
+<td>€279K</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">16707</td>
+<td>241317</td>
+<td>21&nbsp;Xue Qinghao</td>
+<td>19</td>
+<td>https://cdn.sofifa.com/players/241/317/21_60.png</td>
+<td>China PR</td>
+<td>https://cdn.sofifa.com/flags/cn.png</td>
+<td>47</td>
+<td>60</td>
+<td>Shanghai Shenhua FC</td>
+<td>https://cdn.sofifa.com/teams/110955/30.png</td>
+<td>...</td>
+<td>9.0</td>
+<td>49.0</td>
+<td>48.0</td>
+<td>45.0</td>
+<td>38.0</td>
+<td>52.0</td>
+<td>GK</td>
+<td>47.0</td>
+<td>€223K</td>
+<td>21.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16708</td>
+<td>259646</td>
+<td>A. Shaikh</td>
+<td>18</td>
+<td>https://cdn.sofifa.com/players/259/646/22_60.png</td>
+<td>India</td>
+<td>https://cdn.sofifa.com/flags/in.png</td>
+<td>47</td>
+<td>67</td>
+<td>ATK Mohun Bagan FC</td>
+<td>https://cdn.sofifa.com/teams/113146/30.png</td>
+<td>...</td>
+<td>13.0</td>
+<td>49.0</td>
+<td>41.0</td>
+<td>39.0</td>
+<td>45.0</td>
+<td>49.0</td>
+<td>GK</td>
+<td>47.0</td>
+<td>€259K</td>
+<td>7.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>14398 rows × 63 columns</p>
+</div>
+</div>
+</div>
 </section>
 <section id="c.-position-칼럼의-변환" class="level2">
 <h2 class="anchored" data-anchor-id="c.-position-칼럼의-변환">C. Position 칼럼의 변환</h2>
+<div id="8d425f22-86f2-45b1-b393-b1eef4ac874a" class="cell" data-tags="[]" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>position <span class="op">=</span> df.Position.<span class="bu">str</span>.split(<span class="st">"&gt;"</span>).<span class="bu">str</span>[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb10-2"><a href="#cb10-2"></a>position</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="44">
+<pre><code>0        CAM
+1        LDM
+2         RS
+3        RCM
+4         LB
+        ... 
+16703    RES
+16704    RES
+16706    RES
+16707    RES
+16708    SUB
+Name: Position, Length: 14398, dtype: object</code></pre>
+</div>
+</div>
+<div id="5a43cc75-64cf-415b-91ca-100d3198324b" class="cell" data-tags="[]" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>df <span class="op">=</span> df.assign(Position <span class="op">=</span> [k <span class="cf">for</span> i <span class="kw">in</span> position <span class="cf">for</span> k,v <span class="kw">in</span> position_dict.items() <span class="cf">if</span> i <span class="kw">in</span> v])</span>
+<span id="cb12-2"><a href="#cb12-2"></a>df </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="53">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Photo</th>
+<th data-quarto-table-cell-role="th">Nationality</th>
+<th data-quarto-table-cell-role="th">Flag</th>
+<th data-quarto-table-cell-role="th">Overall</th>
+<th data-quarto-table-cell-role="th">Potential</th>
+<th data-quarto-table-cell-role="th">Club</th>
+<th data-quarto-table-cell-role="th">ClubLogo</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">SlidingTackle</th>
+<th data-quarto-table-cell-role="th">GKDiving</th>
+<th data-quarto-table-cell-role="th">GKHandling</th>
+<th data-quarto-table-cell-role="th">GKKicking</th>
+<th data-quarto-table-cell-role="th">GKPositioning</th>
+<th data-quarto-table-cell-role="th">GKReflexes</th>
+<th data-quarto-table-cell-role="th">BestPosition</th>
+<th data-quarto-table-cell-role="th">BestOverallRating</th>
+<th data-quarto-table-cell-role="th">ReleaseClause</th>
+<th data-quarto-table-cell-role="th">DefensiveAwareness</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>212198</td>
+<td>Bruno Fernandes</td>
+<td>26</td>
+<td>https://cdn.sofifa.com/players/212/198/22_60.png</td>
+<td>Portugal</td>
+<td>https://cdn.sofifa.com/flags/pt.png</td>
+<td>88</td>
+<td>89</td>
+<td>Manchester United</td>
+<td>https://cdn.sofifa.com/teams/11/30.png</td>
+<td>...</td>
+<td>65.0</td>
+<td>12.0</td>
+<td>14.0</td>
+<td>15.0</td>
+<td>8.0</td>
+<td>14.0</td>
+<td>CAM</td>
+<td>88.0</td>
+<td>€206.9M</td>
+<td>72.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>209658</td>
+<td>L. Goretzka</td>
+<td>26</td>
+<td>https://cdn.sofifa.com/players/209/658/22_60.png</td>
+<td>Germany</td>
+<td>https://cdn.sofifa.com/flags/de.png</td>
+<td>87</td>
+<td>88</td>
+<td>FC Bayern München</td>
+<td>https://cdn.sofifa.com/teams/21/30.png</td>
+<td>...</td>
+<td>77.0</td>
+<td>13.0</td>
+<td>8.0</td>
+<td>15.0</td>
+<td>11.0</td>
+<td>9.0</td>
+<td>CM</td>
+<td>87.0</td>
+<td>€160.4M</td>
+<td>74.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>176580</td>
+<td>L. Suárez</td>
+<td>34</td>
+<td>https://cdn.sofifa.com/players/176/580/22_60.png</td>
+<td>Uruguay</td>
+<td>https://cdn.sofifa.com/flags/uy.png</td>
+<td>88</td>
+<td>88</td>
+<td>Atlético de Madrid</td>
+<td>https://cdn.sofifa.com/teams/240/30.png</td>
+<td>...</td>
+<td>38.0</td>
+<td>27.0</td>
+<td>25.0</td>
+<td>31.0</td>
+<td>33.0</td>
+<td>37.0</td>
+<td>ST</td>
+<td>88.0</td>
+<td>€91.2M</td>
+<td>42.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>192985</td>
+<td>K. De Bruyne</td>
+<td>30</td>
+<td>https://cdn.sofifa.com/players/192/985/22_60.png</td>
+<td>Belgium</td>
+<td>https://cdn.sofifa.com/flags/be.png</td>
+<td>91</td>
+<td>91</td>
+<td>Manchester City</td>
+<td>https://cdn.sofifa.com/teams/10/30.png</td>
+<td>...</td>
+<td>53.0</td>
+<td>15.0</td>
+<td>13.0</td>
+<td>5.0</td>
+<td>10.0</td>
+<td>13.0</td>
+<td>CM</td>
+<td>91.0</td>
+<td>€232.2M</td>
+<td>68.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>224334</td>
+<td>M. Acuña</td>
+<td>29</td>
+<td>https://cdn.sofifa.com/players/224/334/22_60.png</td>
+<td>Argentina</td>
+<td>https://cdn.sofifa.com/flags/ar.png</td>
+<td>84</td>
+<td>84</td>
+<td>Sevilla FC</td>
+<td>https://cdn.sofifa.com/teams/481/30.png</td>
+<td>...</td>
+<td>82.0</td>
+<td>8.0</td>
+<td>14.0</td>
+<td>13.0</td>
+<td>13.0</td>
+<td>14.0</td>
+<td>LB</td>
+<td>84.0</td>
+<td>€77.7M</td>
+<td>80.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16703</td>
+<td>259718</td>
+<td>F. Gebhardt</td>
+<td>19</td>
+<td>https://cdn.sofifa.com/players/259/718/22_60.png</td>
+<td>Germany</td>
+<td>https://cdn.sofifa.com/flags/de.png</td>
+<td>52</td>
+<td>66</td>
+<td>FC Basel 1893</td>
+<td>https://cdn.sofifa.com/teams/896/30.png</td>
+<td>...</td>
+<td>10.0</td>
+<td>53.0</td>
+<td>45.0</td>
+<td>47.0</td>
+<td>52.0</td>
+<td>57.0</td>
+<td>GK</td>
+<td>52.0</td>
+<td>€361K</td>
+<td>6.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">16704</td>
+<td>251433</td>
+<td>B. Voll</td>
+<td>20</td>
+<td>https://cdn.sofifa.com/players/251/433/22_60.png</td>
+<td>Germany</td>
+<td>https://cdn.sofifa.com/flags/de.png</td>
+<td>58</td>
+<td>69</td>
+<td>F.C. Hansa Rostock</td>
+<td>https://cdn.sofifa.com/teams/27/30.png</td>
+<td>...</td>
+<td>10.0</td>
+<td>59.0</td>
+<td>60.0</td>
+<td>56.0</td>
+<td>55.0</td>
+<td>61.0</td>
+<td>GK</td>
+<td>58.0</td>
+<td>€656K</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16706</td>
+<td>262846</td>
+<td>�. Dobre</td>
+<td>20</td>
+<td>https://cdn.sofifa.com/players/262/846/22_60.png</td>
+<td>Romania</td>
+<td>https://cdn.sofifa.com/flags/ro.png</td>
+<td>53</td>
+<td>63</td>
+<td>FC Academica Clinceni</td>
+<td>https://cdn.sofifa.com/teams/113391/30.png</td>
+<td>...</td>
+<td>12.0</td>
+<td>57.0</td>
+<td>52.0</td>
+<td>53.0</td>
+<td>48.0</td>
+<td>58.0</td>
+<td>GK</td>
+<td>53.0</td>
+<td>€279K</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">16707</td>
+<td>241317</td>
+<td>21&nbsp;Xue Qinghao</td>
+<td>19</td>
+<td>https://cdn.sofifa.com/players/241/317/21_60.png</td>
+<td>China PR</td>
+<td>https://cdn.sofifa.com/flags/cn.png</td>
+<td>47</td>
+<td>60</td>
+<td>Shanghai Shenhua FC</td>
+<td>https://cdn.sofifa.com/teams/110955/30.png</td>
+<td>...</td>
+<td>9.0</td>
+<td>49.0</td>
+<td>48.0</td>
+<td>45.0</td>
+<td>38.0</td>
+<td>52.0</td>
+<td>GK</td>
+<td>47.0</td>
+<td>€223K</td>
+<td>21.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16708</td>
+<td>259646</td>
+<td>A. Shaikh</td>
+<td>18</td>
+<td>https://cdn.sofifa.com/players/259/646/22_60.png</td>
+<td>India</td>
+<td>https://cdn.sofifa.com/flags/in.png</td>
+<td>47</td>
+<td>67</td>
+<td>ATK Mohun Bagan FC</td>
+<td>https://cdn.sofifa.com/teams/113146/30.png</td>
+<td>...</td>
+<td>13.0</td>
+<td>49.0</td>
+<td>41.0</td>
+<td>39.0</td>
+<td>45.0</td>
+<td>49.0</td>
+<td>GK</td>
+<td>47.0</td>
+<td>€259K</td>
+<td>7.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>14398 rows × 63 columns</p>
+</div>
+</div>
+</div>
 </section>
 <section id="d.-wage-칼럼의-변환" class="level2">
 <h2 class="anchored" data-anchor-id="d.-wage-칼럼의-변환">D. Wage 칼럼의 변환</h2>
+<div id="f0eded7e-1a70-4edf-8e3e-90e5a7946de8" class="cell" data-tags="[]" data-execution_count="62">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>df <span class="op">=</span> df.assign(Wage <span class="op">=</span> [<span class="bu">int</span>(l.replace(<span class="st">'€'</span>,<span class="st">''</span>).replace(<span class="st">'K'</span>,<span class="st">'000'</span>)) <span class="cf">for</span> l <span class="kw">in</span> df.Wage]) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="e.-시각화" class="level2">
 <h2 class="anchored" data-anchor-id="e.-시각화">E. 시각화</h2>
+<div id="997968ab-00f1-418f-a8e5-4389edca39d7" class="cell" data-tags="[]" data-execution_count="94">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>fig <span class="op">=</span> ggplot(df[(df.Position <span class="op">==</span> <span class="st">'FORWARD'</span>) <span class="op">|</span> (df.Position <span class="op">==</span> <span class="st">'DEFENDER'</span>)])</span>
+<span id="cb14-2"><a href="#cb14-2"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'ShotPower'</span>,y<span class="op">=</span><span class="st">'SlidingTackle'</span>,color<span class="op">=</span><span class="st">'Position'</span>,size<span class="op">=</span><span class="st">'Wage'</span>,alpha<span class="op">=</span><span class="st">'Wage'</span>),position<span class="op">=</span><span class="st">'jitter'</span>)</span>
+<span id="cb14-3"><a href="#cb14-3"></a>fig<span class="op">+</span>point</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ls13_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>
