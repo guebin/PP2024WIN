@@ -9,7 +9,7 @@
 <meta name="author" content="최규빈">
 <meta name="dcterms.date" content="2023-07-26">
 
-<title>2024년도 동계 WORKSHOP - Lesson 10: seaborn, plotnie</title>
+<title>2024년도 동계 WORKSHOP - Lesson 10: seaborn, plotnine</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -166,14 +166,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#애드워드-터프티" id="toc-애드워드-터프티" class="nav-link" data-scroll-target="#애드워드-터프티">애드워드 터프티</a></li>
   <li><a href="#찰스미나드의-도표" id="toc-찰스미나드의-도표" class="nav-link" data-scroll-target="#찰스미나드의-도표">찰스미나드의 도표</a></li>
   </ul></li>
-  <li><a href="#plotnine" id="toc-plotnine" class="nav-link" data-scroll-target="#plotnine">Plotnine</a>
-  <ul class="collapse">
-  <li><a href="#a.-열의-이름에서-공백제거" id="toc-a.-열의-이름에서-공백제거" class="nav-link" data-scroll-target="#a.-열의-이름에서-공백제거">A. 열의 이름에서 공백제거</a></li>
-  <li><a href="#b.-결측치제거" id="toc-b.-결측치제거" class="nav-link" data-scroll-target="#b.-결측치제거">B. 결측치제거</a></li>
-  <li><a href="#c.-position-칼럼의-변환" id="toc-c.-position-칼럼의-변환" class="nav-link" data-scroll-target="#c.-position-칼럼의-변환">C. Position 칼럼의 변환</a></li>
-  <li><a href="#d.-wage-칼럼의-변환" id="toc-d.-wage-칼럼의-변환" class="nav-link" data-scroll-target="#d.-wage-칼럼의-변환">D. Wage 칼럼의 변환</a></li>
-  <li><a href="#e.-시각화" id="toc-e.-시각화" class="nav-link" data-scroll-target="#e.-시각화">E. 시각화</a></li>
-  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="ls10.out.ipynb" download="ls10.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
     </div>
@@ -182,7 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lesson 10: seaborn, plotnie</h1>
+<h1 class="title">Lesson 10: seaborn, plotnine</h1>
 </div>
 
 
@@ -214,18 +206,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="https://colab.research.google.com/github/guebin/PP2024WIN/blob/main/posts/Day2/ls10.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
 <section id="imports" class="level1">
 <h1>Imports</h1>
-<div id="05d48bf9-9975-4013-b3aa-9cb133b0f649" class="cell" data-tags="[]" data-execution_count="13">
+<div id="05d48bf9-9975-4013-b3aa-9cb133b0f649" class="cell" data-tags="[]" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb1-5"><a href="#cb1-5"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="f6e012be-b1ca-4cdf-905c-9218b4a05e43" class="cell" data-tags="[]" data-execution_count="14">
+<div id="f6e012be-b1ca-4cdf-905c-9218b4a05e43" class="cell" data-tags="[]" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> matplotlib</span>
 <span id="cb2-2"><a href="#cb2-2"></a>matplotlib.rcParams[<span class="st">'figure.dpi'</span>] <span class="op">=</span> <span class="dv">120</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="4c3a3aa2-456f-4441-a72e-afccc9febceb" class="cell" data-tags="[]" data-execution_count="15">
+<div id="4c3a3aa2-456f-4441-a72e-afccc9febceb" class="cell" data-tags="[]" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># import warnings</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="co"># warnings.filterwarnings('ignore')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -242,33 +234,161 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>분석할 데이터가 tabula data 형식인 경우가 많다.</li>
 <li>matplotlib은 여전히 강력하지만, seaborn등 데이터프레임 친화적 패키지가 우수한 경우가 많다.</li>
 </ul>
-<div id="96084421-0f44-4133-b1f4-305c27701355" class="cell" data-tags="[]" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/guebin/DV2023/main/posts/titanic.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="948cc3e1-ea5a-4ad9-8294-49d88470f637" class="cell" data-tags="[]" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>sns.scatterplot(</span>
-<span id="cb5-2"><a href="#cb5-2"></a>    df,</span>
-<span id="cb5-3"><a href="#cb5-3"></a>    x<span class="op">=</span><span class="st">'logFare'</span>,</span>
-<span id="cb5-4"><a href="#cb5-4"></a>    y<span class="op">=</span><span class="st">'Age'</span>,</span>
-<span id="cb5-5"><a href="#cb5-5"></a>    hue<span class="op">=</span><span class="st">'Sex'</span>,</span>
-<span id="cb5-6"><a href="#cb5-6"></a>    style<span class="op">=</span><span class="st">'Survived'</span>,style_order<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">0</span>],</span>
-<span id="cb5-7"><a href="#cb5-7"></a>    alpha<span class="op">=</span><span class="fl">0.8</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
+<div id="96084421-0f44-4133-b1f4-305c27701355" class="cell" data-tags="[]" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/guebin/DV2023/main/posts/titanic.csv"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div>
-<figure class="figure">
-<p><img src="ls10_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
-</figure>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">PassengerId</th>
+<th data-quarto-table-cell-role="th">Survived</th>
+<th data-quarto-table-cell-role="th">Pclass</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">SibSp</th>
+<th data-quarto-table-cell-role="th">Parch</th>
+<th data-quarto-table-cell-role="th">Ticket</th>
+<th data-quarto-table-cell-role="th">Fare</th>
+<th data-quarto-table-cell-role="th">Cabin</th>
+<th data-quarto-table-cell-role="th">Embarked</th>
+<th data-quarto-table-cell-role="th">logFare</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>0</td>
+<td>3</td>
+<td>Braund, Mr. Owen Harris</td>
+<td>male</td>
+<td>22.0</td>
+<td>1</td>
+<td>0</td>
+<td>A/5 21171</td>
+<td>7.2500</td>
+<td>NaN</td>
+<td>S</td>
+<td>1.981001</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+<td>female</td>
+<td>38.0</td>
+<td>1</td>
+<td>0</td>
+<td>PC 17599</td>
+<td>71.2833</td>
+<td>C85</td>
+<td>C</td>
+<td>4.266662</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>1</td>
+<td>3</td>
+<td>Heikkinen, Miss. Laina</td>
+<td>female</td>
+<td>26.0</td>
+<td>0</td>
+<td>0</td>
+<td>STON/O2. 3101282</td>
+<td>7.9250</td>
+<td>NaN</td>
+<td>S</td>
+<td>2.070022</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
+<td>female</td>
+<td>35.0</td>
+<td>1</td>
+<td>0</td>
+<td>113803</td>
+<td>53.1000</td>
+<td>C123</td>
+<td>S</td>
+<td>3.972177</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>0</td>
+<td>3</td>
+<td>Allen, Mr. William Henry</td>
+<td>male</td>
+<td>35.0</td>
+<td>0</td>
+<td>0</td>
+<td>373450</td>
+<td>8.0500</td>
+<td>NaN</td>
+<td>S</td>
+<td>2.085672</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
 </div>
-<div id="cd1f8f34-c363-46cd-b525-e5806449721b" class="cell" data-tags="[]" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>plt.hist(df.Age)<span class="op">;</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>plt.hist(df.Age[df.Survived<span class="op">==</span><span class="dv">1</span>])<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7d3e0140-3554-49fe-b2c6-4973a6552bd7" class="cell" data-tags="[]" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>s <span class="op">=</span> df[df[<span class="st">'Survived'</span>] <span class="op">==</span><span class="dv">1</span>].Sex</span>
+<span id="cb5-2"><a href="#cb5-2"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>1      female
+2      female
+3      female
+8      female
+9      female
+        ...  
+875    female
+879    female
+880    female
+887    female
+889      male
+Name: Sex, Length: 342, dtype: object</code></pre>
+</div>
+</div>
+<div id="948cc3e1-ea5a-4ad9-8294-49d88470f637" class="cell" data-tags="[]" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>sns.scatterplot(</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    df,</span>
+<span id="cb7-3"><a href="#cb7-3"></a>    x<span class="op">=</span><span class="st">'logFare'</span>,</span>
+<span id="cb7-4"><a href="#cb7-4"></a>    y<span class="op">=</span><span class="st">'Age'</span>,</span>
+<span id="cb7-5"><a href="#cb7-5"></a>    hue<span class="op">=</span><span class="st">'Sex'</span>,</span>
+<span id="cb7-6"><a href="#cb7-6"></a>    style<span class="op">=</span><span class="st">'Survived'</span>,style_order<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">0</span>],</span>
+<span id="cb7-7"><a href="#cb7-7"></a>    alpha<span class="op">=</span><span class="fl">0.8</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="ls10_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cd1f8f34-c363-46cd-b525-e5806449721b" class="cell" data-tags="[]" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>plt.hist(df.Age)<span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>plt.hist(df.Age[df.Survived<span class="op">==</span><span class="dv">1</span>])<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ls10_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -320,583 +440,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>이러한 플랏의 단점은 고차원의 자료를 분석하기 어렵다는 것임</li>
 <li>미나드는 여러그림을 그리는 방법 대신에 한 그림에서 패널을 늘리는 방법을 선택함.</li>
 </ul>
-</section>
-</section>
-<section id="plotnine" class="level1">
-<h1>Plotnine</h1>
-<p>아래는 FIFA22의 자료를 불러오는 코드이다.</p>
-<div id="2d081a0c-2e10-4f26-97df-cf283999e71b" class="cell" data-tags="[]" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2021/master/_notebooks/2021-10-25-FIFA22_official_data.csv'</span>)</span>
-<span id="cb7-2"><a href="#cb7-2"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="35">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">ID</th>
-<th data-quarto-table-cell-role="th">Name</th>
-<th data-quarto-table-cell-role="th">Age</th>
-<th data-quarto-table-cell-role="th">Photo</th>
-<th data-quarto-table-cell-role="th">Nationality</th>
-<th data-quarto-table-cell-role="th">Flag</th>
-<th data-quarto-table-cell-role="th">Overall</th>
-<th data-quarto-table-cell-role="th">Potential</th>
-<th data-quarto-table-cell-role="th">Club</th>
-<th data-quarto-table-cell-role="th">Club Logo</th>
-<th data-quarto-table-cell-role="th">...</th>
-<th data-quarto-table-cell-role="th">SlidingTackle</th>
-<th data-quarto-table-cell-role="th">GKDiving</th>
-<th data-quarto-table-cell-role="th">GKHandling</th>
-<th data-quarto-table-cell-role="th">GKKicking</th>
-<th data-quarto-table-cell-role="th">GKPositioning</th>
-<th data-quarto-table-cell-role="th">GKReflexes</th>
-<th data-quarto-table-cell-role="th">Best Position</th>
-<th data-quarto-table-cell-role="th">Best Overall Rating</th>
-<th data-quarto-table-cell-role="th">Release Clause</th>
-<th data-quarto-table-cell-role="th">DefensiveAwareness</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>212198</td>
-<td>Bruno Fernandes</td>
-<td>26</td>
-<td>https://cdn.sofifa.com/players/212/198/22_60.png</td>
-<td>Portugal</td>
-<td>https://cdn.sofifa.com/flags/pt.png</td>
-<td>88</td>
-<td>89</td>
-<td>Manchester United</td>
-<td>https://cdn.sofifa.com/teams/11/30.png</td>
-<td>...</td>
-<td>65.0</td>
-<td>12.0</td>
-<td>14.0</td>
-<td>15.0</td>
-<td>8.0</td>
-<td>14.0</td>
-<td>CAM</td>
-<td>88.0</td>
-<td>€206.9M</td>
-<td>72.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>209658</td>
-<td>L. Goretzka</td>
-<td>26</td>
-<td>https://cdn.sofifa.com/players/209/658/22_60.png</td>
-<td>Germany</td>
-<td>https://cdn.sofifa.com/flags/de.png</td>
-<td>87</td>
-<td>88</td>
-<td>FC Bayern München</td>
-<td>https://cdn.sofifa.com/teams/21/30.png</td>
-<td>...</td>
-<td>77.0</td>
-<td>13.0</td>
-<td>8.0</td>
-<td>15.0</td>
-<td>11.0</td>
-<td>9.0</td>
-<td>CM</td>
-<td>87.0</td>
-<td>€160.4M</td>
-<td>74.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>176580</td>
-<td>L. Suárez</td>
-<td>34</td>
-<td>https://cdn.sofifa.com/players/176/580/22_60.png</td>
-<td>Uruguay</td>
-<td>https://cdn.sofifa.com/flags/uy.png</td>
-<td>88</td>
-<td>88</td>
-<td>Atlético de Madrid</td>
-<td>https://cdn.sofifa.com/teams/240/30.png</td>
-<td>...</td>
-<td>38.0</td>
-<td>27.0</td>
-<td>25.0</td>
-<td>31.0</td>
-<td>33.0</td>
-<td>37.0</td>
-<td>ST</td>
-<td>88.0</td>
-<td>€91.2M</td>
-<td>42.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>192985</td>
-<td>K. De Bruyne</td>
-<td>30</td>
-<td>https://cdn.sofifa.com/players/192/985/22_60.png</td>
-<td>Belgium</td>
-<td>https://cdn.sofifa.com/flags/be.png</td>
-<td>91</td>
-<td>91</td>
-<td>Manchester City</td>
-<td>https://cdn.sofifa.com/teams/10/30.png</td>
-<td>...</td>
-<td>53.0</td>
-<td>15.0</td>
-<td>13.0</td>
-<td>5.0</td>
-<td>10.0</td>
-<td>13.0</td>
-<td>CM</td>
-<td>91.0</td>
-<td>€232.2M</td>
-<td>68.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>224334</td>
-<td>M. Acuña</td>
-<td>29</td>
-<td>https://cdn.sofifa.com/players/224/334/22_60.png</td>
-<td>Argentina</td>
-<td>https://cdn.sofifa.com/flags/ar.png</td>
-<td>84</td>
-<td>84</td>
-<td>Sevilla FC</td>
-<td>https://cdn.sofifa.com/teams/481/30.png</td>
-<td>...</td>
-<td>82.0</td>
-<td>8.0</td>
-<td>14.0</td>
-<td>13.0</td>
-<td>13.0</td>
-<td>14.0</td>
-<td>LB</td>
-<td>84.0</td>
-<td>€77.7M</td>
-<td>80.0</td>
-</tr>
-</tbody>
-</table>
-
-<p>5 rows × 65 columns</p>
-</div>
-</div>
-</div>
-<p>포지션별로 선수들의 능력치(<code>ShotPower</code>,<code>SlidingTackle</code>)와 급여(<code>Wage</code>)를 시각화하고 싶다. 아래의 세부지침에 맞추어 포지션별 <code>ShotPower</code>와 <code>SlidingTackle</code>의 산점도를 그려라.</p>
-<div id="86872e6b-930c-4daf-b3bb-07cf07647a39" class="cell" data-tags="[]" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>df.Position</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
-<pre><code>0        &lt;span class="pos pos18"&gt;CAM
-1        &lt;span class="pos pos11"&gt;LDM
-2         &lt;span class="pos pos24"&gt;RS
-3        &lt;span class="pos pos13"&gt;RCM
-4          &lt;span class="pos pos7"&gt;LB
-                    ...             
-16705    &lt;span class="pos pos29"&gt;RES
-16706    &lt;span class="pos pos29"&gt;RES
-16707    &lt;span class="pos pos29"&gt;RES
-16708    &lt;span class="pos pos28"&gt;SUB
-16709    &lt;span class="pos pos28"&gt;SUB
-Name: Position, Length: 16710, dtype: object</code></pre>
-</div>
-</div>
-<p><strong><em>세부지침</em></strong></p>
-<p><strong>A</strong>. Column의 이름에서 공백을 제거하라.</p>
-<p><strong>B</strong>. 결측치가 50%이상인 컬럼을 찾고 이를 제거하라. 그 뒤에 <code>.dropna()</code>를 사용하여 결측치가 포함된 행을 제거하라.</p>
-<p><strong>C</strong>. <code>position_dict</code>를 이용하여 <code>df.Position</code>을 적절하게 변환하라. 변환된 값을 <code>df.Position</code>에 저장하라.</p>
-<div id="1de2d940-68ed-4a76-b2ac-7d3eaa54c624" class="cell" data-tags="[]" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>position_dict <span class="op">=</span> {</span>
-<span id="cb10-2"><a href="#cb10-2"></a>    <span class="st">'GOALKEEPER'</span>:{<span class="st">'GK'</span>},</span>
-<span id="cb10-3"><a href="#cb10-3"></a>    <span class="st">'DEFENDER'</span>:{<span class="st">'CB'</span>,<span class="st">'RCB'</span>,<span class="st">'LCB'</span>,<span class="st">'RB'</span>,<span class="st">'LB'</span>,<span class="st">'RWB'</span>,<span class="st">'LWB'</span>},</span>
-<span id="cb10-4"><a href="#cb10-4"></a>    <span class="st">'MIDFIELDER'</span>:{<span class="st">'CM'</span>,<span class="st">'RCM'</span>,<span class="st">'LCM'</span>,<span class="st">'CDM'</span>,<span class="st">'RDM'</span>,<span class="st">'LDM'</span>,<span class="st">'CAM'</span>,<span class="st">'RAM'</span>,<span class="st">'LAM'</span>,<span class="st">'RM'</span>,<span class="st">'LM'</span>},</span>
-<span id="cb10-5"><a href="#cb10-5"></a>    <span class="st">'FORWARD'</span>:{<span class="st">'ST'</span>,<span class="st">'CF'</span>,<span class="st">'RF'</span>,<span class="st">'LF'</span>,<span class="st">'RW'</span>,<span class="st">'LW'</span>,<span class="st">'RS'</span>,<span class="st">'LS'</span>},</span>
-<span id="cb10-6"><a href="#cb10-6"></a>    <span class="st">'SUB'</span>:{<span class="st">'SUB'</span>},</span>
-<span id="cb10-7"><a href="#cb10-7"></a>    <span class="st">'RES'</span>:{<span class="st">'RES'</span>}</span>
-<span id="cb10-8"><a href="#cb10-8"></a>}</span>
-<span id="cb10-9"><a href="#cb10-9"></a>position_dict</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
-<pre><code>{'GOALKEEPER': {'GK'},
- 'DEFENDER': {'CB', 'LB', 'LCB', 'LWB', 'RB', 'RCB', 'RWB'},
- 'MIDFIELDER': {'CAM',
-  'CDM',
-  'CM',
-  'LAM',
-  'LCM',
-  'LDM',
-  'LM',
-  'RAM',
-  'RCM',
-  'RDM',
-  'RM'},
- 'FORWARD': {'CF', 'LF', 'LS', 'LW', 'RF', 'RS', 'RW', 'ST'},
- 'SUB': {'SUB'},
- 'RES': {'RES'}}</code></pre>
-</div>
-</div>
-<p><strong>D</strong>. <code>df.Wage</code>를 적절하게 변환하라.</p>
-<p><strong>E</strong>. <code>Position==“DEFENDER”</code> or <code>Position==“FORWARD”</code>에 해당하는 관측치를 고른 뒤 x축에 <code>ShotPower</code>, y축에 <code>SlidingTackle</code>을 시각화하라. 이때 <code>Position</code>은 color로 구분하고 <code>Wage</code>는 size와 alpha로 구분하라.</p>
-<p>— 시각화예시 —</p>
-<div id="4af64d0e-cf1a-4eb3-b8f2-14bd63e0d31a" class="cell" data-tags="[]" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="ls10_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<section id="a.-열의-이름에서-공백제거" class="level2">
-<h2 class="anchored" data-anchor-id="a.-열의-이름에서-공백제거">A. 열의 이름에서 공백제거</h2>
-<div id="f0539601-1779-4a58-b104-9e4f4e7c555b" class="cell" data-tags="[]" data-execution_count="56">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>df.columns <span class="op">=</span> df.columns.<span class="bu">str</span>.replace(<span class="st">' '</span>,<span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="b.-결측치제거" class="level2">
-<h2 class="anchored" data-anchor-id="b.-결측치제거">B. 결측치제거</h2>
-<div id="cd110f29-8ddf-4b8d-8fa5-a0dadb600afd" class="cell" data-tags="[]" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>df <span class="op">=</span> df.loc[:,df.isna().mean()<span class="op">&lt;</span><span class="fl">0.5</span>] <span class="co"># 결측치가 50퍼 이상인 컬럼을 제거</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="120215a6-8ad8-4abc-a6e1-fda6627f71ba" class="cell" data-tags="[]" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>df <span class="op">=</span> df.dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="5dd1ad47-a9ab-4ca7-88fb-9c53db7b2491" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">ID</th>
-<th data-quarto-table-cell-role="th">Name</th>
-<th data-quarto-table-cell-role="th">Age</th>
-<th data-quarto-table-cell-role="th">Photo</th>
-<th data-quarto-table-cell-role="th">Nationality</th>
-<th data-quarto-table-cell-role="th">Flag</th>
-<th data-quarto-table-cell-role="th">Overall</th>
-<th data-quarto-table-cell-role="th">Potential</th>
-<th data-quarto-table-cell-role="th">Club</th>
-<th data-quarto-table-cell-role="th">Club Logo</th>
-<th data-quarto-table-cell-role="th">...</th>
-<th data-quarto-table-cell-role="th">SlidingTackle</th>
-<th data-quarto-table-cell-role="th">GKDiving</th>
-<th data-quarto-table-cell-role="th">GKHandling</th>
-<th data-quarto-table-cell-role="th">GKKicking</th>
-<th data-quarto-table-cell-role="th">GKPositioning</th>
-<th data-quarto-table-cell-role="th">GKReflexes</th>
-<th data-quarto-table-cell-role="th">Best Position</th>
-<th data-quarto-table-cell-role="th">Best Overall Rating</th>
-<th data-quarto-table-cell-role="th">Release Clause</th>
-<th data-quarto-table-cell-role="th">DefensiveAwareness</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>212198</td>
-<td>Bruno Fernandes</td>
-<td>26</td>
-<td>https://cdn.sofifa.com/players/212/198/22_60.png</td>
-<td>Portugal</td>
-<td>https://cdn.sofifa.com/flags/pt.png</td>
-<td>88</td>
-<td>89</td>
-<td>Manchester United</td>
-<td>https://cdn.sofifa.com/teams/11/30.png</td>
-<td>...</td>
-<td>65.0</td>
-<td>12.0</td>
-<td>14.0</td>
-<td>15.0</td>
-<td>8.0</td>
-<td>14.0</td>
-<td>CAM</td>
-<td>88.0</td>
-<td>€206.9M</td>
-<td>72.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>209658</td>
-<td>L. Goretzka</td>
-<td>26</td>
-<td>https://cdn.sofifa.com/players/209/658/22_60.png</td>
-<td>Germany</td>
-<td>https://cdn.sofifa.com/flags/de.png</td>
-<td>87</td>
-<td>88</td>
-<td>FC Bayern München</td>
-<td>https://cdn.sofifa.com/teams/21/30.png</td>
-<td>...</td>
-<td>77.0</td>
-<td>13.0</td>
-<td>8.0</td>
-<td>15.0</td>
-<td>11.0</td>
-<td>9.0</td>
-<td>CM</td>
-<td>87.0</td>
-<td>€160.4M</td>
-<td>74.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>176580</td>
-<td>L. Suárez</td>
-<td>34</td>
-<td>https://cdn.sofifa.com/players/176/580/22_60.png</td>
-<td>Uruguay</td>
-<td>https://cdn.sofifa.com/flags/uy.png</td>
-<td>88</td>
-<td>88</td>
-<td>Atlético de Madrid</td>
-<td>https://cdn.sofifa.com/teams/240/30.png</td>
-<td>...</td>
-<td>38.0</td>
-<td>27.0</td>
-<td>25.0</td>
-<td>31.0</td>
-<td>33.0</td>
-<td>37.0</td>
-<td>ST</td>
-<td>88.0</td>
-<td>€91.2M</td>
-<td>42.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>192985</td>
-<td>K. De Bruyne</td>
-<td>30</td>
-<td>https://cdn.sofifa.com/players/192/985/22_60.png</td>
-<td>Belgium</td>
-<td>https://cdn.sofifa.com/flags/be.png</td>
-<td>91</td>
-<td>91</td>
-<td>Manchester City</td>
-<td>https://cdn.sofifa.com/teams/10/30.png</td>
-<td>...</td>
-<td>53.0</td>
-<td>15.0</td>
-<td>13.0</td>
-<td>5.0</td>
-<td>10.0</td>
-<td>13.0</td>
-<td>CM</td>
-<td>91.0</td>
-<td>€232.2M</td>
-<td>68.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>224334</td>
-<td>M. Acuña</td>
-<td>29</td>
-<td>https://cdn.sofifa.com/players/224/334/22_60.png</td>
-<td>Argentina</td>
-<td>https://cdn.sofifa.com/flags/ar.png</td>
-<td>84</td>
-<td>84</td>
-<td>Sevilla FC</td>
-<td>https://cdn.sofifa.com/teams/481/30.png</td>
-<td>...</td>
-<td>82.0</td>
-<td>8.0</td>
-<td>14.0</td>
-<td>13.0</td>
-<td>13.0</td>
-<td>14.0</td>
-<td>LB</td>
-<td>84.0</td>
-<td>€77.7M</td>
-<td>80.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">16703</td>
-<td>259718</td>
-<td>F. Gebhardt</td>
-<td>19</td>
-<td>https://cdn.sofifa.com/players/259/718/22_60.png</td>
-<td>Germany</td>
-<td>https://cdn.sofifa.com/flags/de.png</td>
-<td>52</td>
-<td>66</td>
-<td>FC Basel 1893</td>
-<td>https://cdn.sofifa.com/teams/896/30.png</td>
-<td>...</td>
-<td>10.0</td>
-<td>53.0</td>
-<td>45.0</td>
-<td>47.0</td>
-<td>52.0</td>
-<td>57.0</td>
-<td>GK</td>
-<td>52.0</td>
-<td>€361K</td>
-<td>6.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">16704</td>
-<td>251433</td>
-<td>B. Voll</td>
-<td>20</td>
-<td>https://cdn.sofifa.com/players/251/433/22_60.png</td>
-<td>Germany</td>
-<td>https://cdn.sofifa.com/flags/de.png</td>
-<td>58</td>
-<td>69</td>
-<td>F.C. Hansa Rostock</td>
-<td>https://cdn.sofifa.com/teams/27/30.png</td>
-<td>...</td>
-<td>10.0</td>
-<td>59.0</td>
-<td>60.0</td>
-<td>56.0</td>
-<td>55.0</td>
-<td>61.0</td>
-<td>GK</td>
-<td>58.0</td>
-<td>€656K</td>
-<td>5.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">16706</td>
-<td>262846</td>
-<td>�. Dobre</td>
-<td>20</td>
-<td>https://cdn.sofifa.com/players/262/846/22_60.png</td>
-<td>Romania</td>
-<td>https://cdn.sofifa.com/flags/ro.png</td>
-<td>53</td>
-<td>63</td>
-<td>FC Academica Clinceni</td>
-<td>https://cdn.sofifa.com/teams/113391/30.png</td>
-<td>...</td>
-<td>12.0</td>
-<td>57.0</td>
-<td>52.0</td>
-<td>53.0</td>
-<td>48.0</td>
-<td>58.0</td>
-<td>GK</td>
-<td>53.0</td>
-<td>€279K</td>
-<td>5.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">16707</td>
-<td>241317</td>
-<td>21&nbsp;Xue Qinghao</td>
-<td>19</td>
-<td>https://cdn.sofifa.com/players/241/317/21_60.png</td>
-<td>China PR</td>
-<td>https://cdn.sofifa.com/flags/cn.png</td>
-<td>47</td>
-<td>60</td>
-<td>Shanghai Shenhua FC</td>
-<td>https://cdn.sofifa.com/teams/110955/30.png</td>
-<td>...</td>
-<td>9.0</td>
-<td>49.0</td>
-<td>48.0</td>
-<td>45.0</td>
-<td>38.0</td>
-<td>52.0</td>
-<td>GK</td>
-<td>47.0</td>
-<td>€223K</td>
-<td>21.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">16708</td>
-<td>259646</td>
-<td>A. Shaikh</td>
-<td>18</td>
-<td>https://cdn.sofifa.com/players/259/646/22_60.png</td>
-<td>India</td>
-<td>https://cdn.sofifa.com/flags/in.png</td>
-<td>47</td>
-<td>67</td>
-<td>ATK Mohun Bagan FC</td>
-<td>https://cdn.sofifa.com/teams/113146/30.png</td>
-<td>...</td>
-<td>13.0</td>
-<td>49.0</td>
-<td>41.0</td>
-<td>39.0</td>
-<td>45.0</td>
-<td>49.0</td>
-<td>GK</td>
-<td>47.0</td>
-<td>€259K</td>
-<td>7.0</td>
-</tr>
-</tbody>
-</table>
-
-<p>14398 rows × 63 columns</p>
-</div>
-</div>
-</div>
-</section>
-<section id="c.-position-칼럼의-변환" class="level2">
-<h2 class="anchored" data-anchor-id="c.-position-칼럼의-변환">C. Position 칼럼의 변환</h2>
-<div id="9047306d-9c40-437a-8cdc-8b095f1c08be" class="cell" data-tags="[]" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>df[<span class="st">'Position'</span>] <span class="op">=</span> df.Position.<span class="bu">str</span>.split(<span class="st">"&gt;"</span>).<span class="bu">str</span>[<span class="op">-</span><span class="dv">1</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> position_dict.items() <span class="cf">if</span> x <span class="kw">in</span> v][<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="d.-wage-칼럼의-변환" class="level2">
-<h2 class="anchored" data-anchor-id="d.-wage-칼럼의-변환">D. Wage 칼럼의 변환</h2>
-<div id="c8bca810-ca27-4761-9f69-dd40aa95a9fd" class="cell" data-tags="[]" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>df[<span class="st">'Wage'</span>] <span class="op">=</span> df.Wage.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'000'</span>).astype(<span class="bu">int</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="e.-시각화" class="level2">
-<h2 class="anchored" data-anchor-id="e.-시각화">E. 시각화</h2>
-<div id="2db1c8af-3da2-4b71-b506-1987da9fbd5d" class="cell" data-tags="[]" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>fig <span class="op">=</span> ggplot(df.query(<span class="st">'Position=="DEFENDER" or Position=="FORWARD"'</span>))</span>
-<span id="cb19-2"><a href="#cb19-2"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'ShotPower'</span>,y<span class="op">=</span><span class="st">'SlidingTackle'</span>,color<span class="op">=</span><span class="st">'Position'</span>,size<span class="op">=</span><span class="st">'Wage'</span>,alpha<span class="op">=</span><span class="st">'Wage'</span>),position<span class="op">=</span><span class="st">'jitter'</span>)</span>
-<span id="cb19-3"><a href="#cb19-3"></a>fig <span class="op">+</span> point</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="ls10_files/figure-html/cell-18-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
 
 
 </section>
