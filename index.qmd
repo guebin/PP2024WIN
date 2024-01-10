@@ -12,5 +12,3 @@ listing:
 page-layout: full
 title-block-banner: false
 ---
-
-이 강의들은 2023년 파이썬프로그래밍^[학부 2학년1학기], 2022년 데이터시각화^[학부 2학년2학기] 수업을 바탕으로 작성되었습니다. 
